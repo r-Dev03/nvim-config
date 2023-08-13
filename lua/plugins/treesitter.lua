@@ -6,7 +6,7 @@ return {
 
 		-- See `:help nvim-treesitter-quickstart` or the repo's README
 		treesitter.setup({
-			ensure_installed = { "vimdoc", "lua" },
+			ensure_installed = { "vimdoc", "lua", "javascript", "typescript", "html", "c"},
 			auto_install = true,
 			highlight = {
 				enable = true,

@@ -12,6 +12,10 @@ return {
 		telescope.setup({})
 
 		-- See `:help telescope.builtin`
-		vim.keymap.set("n", "<Leader>ff", builtin.find_files)
+		vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+		vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+		vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
+		vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
+
 	end,
 }

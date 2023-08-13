@@ -1,15 +1,15 @@
 -- The best color palette out there
 return {
-	"catppuccin/nvim",
+"rebelot/kanagawa.nvim",
 
-	name = "catppuccin",
+	name = "kanagawa",
 	priority = 1000,
 	config = function()
 		-- See the repo's README for this
-		require("catppuccin").setup({
+		require("kanagawa").setup({
 			-- ...
 		})
 
-		vim.cmd.colorscheme("catppuccin")
+		vim.cmd.colorscheme("kanagawa-dragon")
 	end,
 }
