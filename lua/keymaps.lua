@@ -14,3 +14,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Let cursor remain at current spot after appending a line using J 
 vim.keymap.set("n", "J", "mzJ`z")
 
+--Copying things into system clipboard
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
