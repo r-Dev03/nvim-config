@@ -14,6 +14,7 @@ return {
 		lspconfig.tsserver.setup({})
 		lspconfig.rust_analyzer.setup({})
 		lspconfig.lua_ls.setup({})
+		lspconfig.clangd.setup({})
 
 		-- Another cool thing is `:help LspAttach`
 		--   (this is an autocommand, see `:help autocmd` and `:help nvim_create_autocmd`)
