@@ -25,11 +25,20 @@ return {
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("lsp-on-attach", { clear = true }),
 			callback = function()
+				vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+					vim.lsp.handlers.hover, {
+						-- Use a sharp border with `FloatBorder` highlights
+						border = "single",
+						-- add the title in hover float window
+						title = "hover"
+					}
+)
 				-- In here you can run any setup code you want to apply to all your language servers.
 				-- For server specific setups, see `on_attach` for lspconfig
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 				vim.keymap.set("n", "gr", vim.lsp.buf.references)
 				vim.keymap.set("n", "gR", vim.lsp.buf.rename)
+				vim.keymap.set("n", "K", vim.lsp.buf.hover)
 			end,
 		})
 	end,
