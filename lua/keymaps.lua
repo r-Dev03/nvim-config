@@ -18,3 +18,4 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+--Setting TMUX Keymaps
