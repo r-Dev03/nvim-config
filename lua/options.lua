@@ -10,6 +10,7 @@
 vim.opt.expandtab = false
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.wrap = true
 
 -- You can read about any of these via `:help '<option>'`, e.g. `:help 'number'`
 vim.opt.number = true
