@@ -10,7 +10,30 @@ return {
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
 
-		telescope.setup({})
+		telescope.setup({
+			defaults = {
+				file_ignore_patterns = {
+					"^node_modules/",
+					"^dist/",
+					"^.git/",
+					"^.direnv/",
+					"^.sqlx/",
+					"^zsh/plugins/",
+					"^desktop/icons/",
+					"%.png",
+					"%.jpg",
+					"%.jpeg",
+					"%.svg",
+					"%.ttf",
+					"%.otf",
+					"%.lock",
+					"%-lock.json",
+					"%.wasm",
+					"%.xml",
+					"%.tmTheme",
+				},
+			}
+		})
 
 		-- See `:help telescope.builtin`
 		vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
