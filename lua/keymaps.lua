@@ -21,3 +21,4 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 --Middle cursor after half page jumping
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
