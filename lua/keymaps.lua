@@ -3,7 +3,7 @@
 vim.g.mapleader = " "
 
 -- `Space + e` will open netrw.
--- Read `:help mapping` and `:help vim.keymap.set`
+-- Read `:help mapping` and `:help somethingelse`
 vim.keymap.set("n", "<Leader>e", vim.cmd.Ex)
 vim.keymap.set("i", "<C-BS>", "<Esc>cvb", {})
 
@@ -21,4 +21,11 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 --Middle cursor after half page jumping
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- S&R -> replace word under cursor across file
+vim.keymap.set('n', '<leader>s', [[:%s/<C-r><C-w>//gc<Left><Left><Left>]])
+-- S&R -> replace selected phrase across file
+vim.keymap.set('v', '<leader>s', [[y:%s/<C-r>"//gc<Left><Left><Left>]])
+-- S&R -> select text, press and write what to search for and replace
+vim.keymap.set('v', '<leader>sr', [[:s///gI<Left><Left><Left><Left>]])
 
