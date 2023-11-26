@@ -23,9 +23,9 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- S&R -> replace word under cursor across file
-vim.keymap.set('n', '<leader>s', [[:%s/<C-r><C-w>//gc<Left><Left><Left>]])
+vim.keymap.set('n', '<leader>s', [[:%s/<C-r><C-w>//gl<Left><Left><Left>]])
 -- S&R -> replace selected phrase across file
-vim.keymap.set('v', '<leader>s', [[y:%s/<C-r>"//gc<Left><Left><Left>]])
+vim.keymap.set('v', '<leader>s', [[y:%s/<C-r>"//gl<Left><Left><Left>]])
 -- S&R -> select text, press and write what to search for and replace
 vim.keymap.set('v', '<leader>sr', [[:s///gI<Left><Left><Left><Left>]])
 
