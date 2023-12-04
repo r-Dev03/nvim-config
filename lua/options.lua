@@ -6,6 +6,9 @@
 -- Just put whatever you want here, I recommend you either look through `:help options-list`,
 -- kickstart's options, or other people's dotfiles.
 
+-- Cursor config
+vim.opt.guicursor = ""
+
 -- e.g. indentation settings, because we love tabs... right??
 vim.opt.expandtab = false
 vim.opt.tabstop = 4
@@ -17,3 +20,4 @@ vim.opt.linebreak = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
+
