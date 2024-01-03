@@ -1,8 +1,22 @@
 return {
 	'stevearc/oil.nvim',
-	opts = {},
+	opts = {
+		columns = {
+			"icon",
+		},
+
+		view_options = {
+			show_hidden = true,
+		},
+
+	},
 	config = function ()
-		require("oil").setup()
+		require("oil").setup({
+			keymaps = {
+				["H"] = "actions.toggle_hidden",
+			}
+			}
+		)
 		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 	end
 }
