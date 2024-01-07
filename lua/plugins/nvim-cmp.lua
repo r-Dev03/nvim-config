@@ -11,8 +11,8 @@ return {
 			"L3MON4D3/LuaSnip",
 			build = "make install_jsregexp",
 		}
-
 	},
+
 	config = function()
 		local cmp = require("cmp")
 		vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -24,8 +24,8 @@ return {
 				end,
 			},
 			window = {
-				-- completion = cmp.config.window.bordered(),
-				-- documentation = cmp.config.window.bordered(),
+				 completion = cmp.config.window.bordered(),
+				 documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
