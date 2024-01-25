@@ -4,6 +4,7 @@ require("options")
 -- Load `./lua/keymaps.lua`
 require("keymaps")
 
+
 -- Default installation path for lazy -- this will resolve to `~/.local/share/nvim`.
 -- See `:help stdpath()`
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
