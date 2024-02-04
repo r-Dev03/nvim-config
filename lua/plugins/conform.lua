@@ -19,7 +19,6 @@ return {
 			},
 		})
 
-	--test
 		vim.keymap.set("n", "<leader>f", conform.format)
 	end,
 }
