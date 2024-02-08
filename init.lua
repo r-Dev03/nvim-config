@@ -1,8 +1,8 @@
--- Load `./lua/options.lua`
-require("options")
+-- Load `./lua/core/options.lua`
+require("core.options")
 
--- Load `./lua/keymaps.lua`
-require("keymaps")
+-- Load `./lua/keymaps/keymaps.lua`
+require("keymaps.keymaps")
 
 -- Load `./lua/utils/auto_commands.lua`
 require("utils.auto_commands")
