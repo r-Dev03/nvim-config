@@ -7,6 +7,7 @@ return {
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
 		"saadparwaiz1/cmp_luasnip",
+		"onsails/lspkind.nvim",
 		{
 			"L3MON4D3/LuaSnip",
 			build = "make install_jsregexp",
@@ -15,7 +16,8 @@ return {
 
 	config = function()
 		local cmp = require("cmp")
-		local kind_icons = require("lua.utils.kind_icons")
+		local format = require("lspkind").cmp_format
+		-- local kind_icons = require("utils.kind_icons")
 		vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 		cmp.setup({
@@ -44,23 +46,16 @@ return {
 				{ name = "buffer" },
 				{ name = "path" },
 			}),
+			formatting = {
+				format = format({
+					mode = "symbol",
+					maxwidth = 50,
+					ellipsis_char = "...",
+					show_labelDetails = true,
+				}),
+			},
 		})
 
-		formatting = {
-			fields = { "kind", "abbr", "menu" },
-			format = function(entry, item)
-				item.kind = string.format("%s", kind_icons[item.kind])
-
-				item.menu = ({
-					buffer = "[Buff]",
-					nvim_lsp = "[LSP]",
-					path = "[Path]",
-					luasnip = "[Snip]",
-					nvim_lua = "[Lua]",
-				})[entry.source.name]
-				return item
-			end,
-		}
 		cmp.setup.cmdline(":", {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({
