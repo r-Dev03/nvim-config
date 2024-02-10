@@ -7,6 +7,9 @@ require("keymaps.keymaps")
 -- Load `./lua/utils/auto_commands.lua`
 require("utils.auto_commands")
 
+-- Load `./lua/utils/lsp.lua`
+require("keymaps.lsp")
+
 -- Default installation path for lazy -- this will resolve to `~/.local/share/nvim`.
 -- See `:help stdpath()`
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -51,7 +54,9 @@ if lazy_installed then
 else
 	-- Clone lazy into `lazy_path`
 	vim.fn.system({
-		"git", "clone", "--branch=stable",
+		"git",
+		"clone",
+		"--branch=stable",
 		"https://github.com/folke/lazy.nvim",
 		lazy_path,
 	})

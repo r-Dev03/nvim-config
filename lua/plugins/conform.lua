@@ -6,12 +6,12 @@ return {
 		require("conform").setup({
 			formatters_by_ft = {
 				c = { "clang_format" },
-				javascript = { "eslint_d", "prettierd" },
-				typescript = { "prettierd" },
-				markdown = { "prettierd" },
-				css = { "prettierd" },
-				html = { "prettierd" },
-				json = { "prettierd" },
+				javascript = {"prettier" },
+				typescript = { "prettier" },
+				markdown = { "prettier" },
+				css = { "prettier" },
+				html = { "prettier" },
+				json = { "prettier" },
 				sh = { "beautysh" },
 				lua = { "stylua" },
 				python = { "black", "isort" },

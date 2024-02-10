@@ -1,6 +1,7 @@
 {
     "diagnostics.globals": [
-        "vim"
+        "vim",
+        "formatting"
     ],
     "diagnostics.disable": [
         "undefined-global"

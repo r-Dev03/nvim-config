@@ -10,11 +10,12 @@ return {
 		{
 			"L3MON4D3/LuaSnip",
 			build = "make install_jsregexp",
-		}
+		},
 	},
 
 	config = function()
 		local cmp = require("cmp")
+		local kind_icons = require("lua.utils.kind_icons")
 		vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 		cmp.setup({
@@ -24,8 +25,8 @@ return {
 				end,
 			},
 			window = {
-				 completion = cmp.config.window.bordered(),
-				 documentation = cmp.config.window.bordered(),
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -39,19 +40,34 @@ return {
 				{ name = "nvim_lua" },
 				{ name = "luasnip" }, -- For luasnip users.
 				-- { name = "orgmode" },
-				}, {
-					{ name = "buffer" },
-					{ name = "path" },
+			}, {
+				{ name = "buffer" },
+				{ name = "path" },
 			}),
 		})
 
+		formatting = {
+			fields = { "kind", "abbr", "menu" },
+			format = function(entry, item)
+				item.kind = string.format("%s", kind_icons[item.kind])
+
+				item.menu = ({
+					buffer = "[Buff]",
+					nvim_lsp = "[LSP]",
+					path = "[Path]",
+					luasnip = "[Snip]",
+					nvim_lua = "[Lua]",
+				})[entry.source.name]
+				return item
+			end,
+		}
 		cmp.setup.cmdline(":", {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({
 				{ name = "path" },
-				}, {
-					{ name = "cmdline" },
+			}, {
+				{ name = "cmdline" },
 			}),
 		})
-	end
+	end,
 }
