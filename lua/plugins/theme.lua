@@ -27,6 +27,7 @@
 -- aki theme
 return {
 	"crispybaccoon/aki",
+	commit = "53c72e1c30f13646515314da96f098e0dfc150a1",
 	config = function()
 		require("aki").setup({
 			transparent_background = false,
