@@ -36,7 +36,6 @@ local lazy_setup = function()
 
 			-- Default colorscheme while installing plugins
 			-- Honestly I have no idea why this exists but it's kinda cool ig
-			colorscheme = { "habamax" },
 		},
 
 		ui = {

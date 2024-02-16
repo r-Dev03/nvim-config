@@ -8,3 +8,5 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   end,
   desc = "Highlighting matched words when searching",
 })
+
+-- vim.api.nvim_create_user_command("Grep", "silent grep! <args> | copen | redraw!", { nargs = "+" })
