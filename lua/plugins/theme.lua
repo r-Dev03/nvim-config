@@ -1,6 +1,5 @@
 --kanagawa-dragon theme
---------------------------
--- return {
+-------------------------- return {
 -- 	"rebelot/kanagawa.nvim",
 --
 -- 	name = "kanagawa",
