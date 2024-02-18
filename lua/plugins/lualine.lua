@@ -95,7 +95,7 @@ return {
 --       'diagnostics',
 --     },
 --     lualine_c = {
---       { 'filename', path = 1, symbols = { modified = '*' } },
+-- { 'filename', path = 1, symbols = { modified = '*' } },
 --     },
 --     lualine_x = {
 --       '%S', -- showcmd, requires showcmdloc=statusline
