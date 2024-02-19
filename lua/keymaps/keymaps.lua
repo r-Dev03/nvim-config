@@ -33,6 +33,8 @@ vim.keymap.set("v", "<leader>s", [[y:%s/<C-r>"//gl<Left><Left><Left>]])
 -- S&R -> select text, press and write what to search for and replace
 vim.keymap.set("v", "<leader>sr", [[:s///gI<Left><Left><Left><Left>]])
 
+vim.keymap.set("n", "<leader>th", "<CMD> Telescope help_tags<CR>", { desc = "Search help tags" })
+
 -- <<< Quickfix list >>>
 -- vim.keymap.set("n", "<leader>qo", ":copen<cr>", { desc = "Open quickfix list" })
 -- vim.keymap.set("n", "<leader>qc", ":cclose<cr>", { desc = "Close quickfix list" })

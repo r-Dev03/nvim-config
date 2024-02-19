@@ -8,10 +8,13 @@ return {
 		treesitter.setup({
 			ensure_installed = {
 				"vimdoc",
+				"angular",
 				"lua",
 				"javascript",
 				"typescript",
 				"html",
+				"scss",
+				"css",
 				"c",
 				"python",
 				"bash",

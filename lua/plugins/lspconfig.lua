@@ -20,6 +20,8 @@ return {
 		lspconfig.pyright.setup({})
 		lspconfig.eslint.setup({})
 		lspconfig.jdtls.setup({})
+		lspconfig.html.setup({})
+		lspconfig.cssls.setup({})
 		lspconfig.vale_ls.setup({})
 
 		-- Another cool thing is `:help LspAttach`
@@ -33,14 +35,12 @@ return {
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				assert(client, "LSP client crashed?")
 				client.server_capabilities.semanticTokensProvider = nil
-				-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-				-- vim.lsp.handlers.hover, {
-				-- Use a sharp border with `FloatBorder` highlights
-				-- border = "single",
-				-- add the title in hover float window
-				-- title = "hover"
-				-- }
-				-- )
+				vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+					-- -- Use a sharp border with `FloatBorder` highlights
+					border = "single",
+					-- -- add the title in hover float window
+					title = "hover",
+				})
 				-- In here you can run any setup code you want to apply to all your language servers.
 				-- For server specific setups, see `on_attach` for lspconfig
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition)
