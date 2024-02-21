@@ -33,9 +33,6 @@ local lazy_setup = function()
 		install = {
 			-- Install missing plugins automatically
 			missing = true,
-
-			-- Default colorscheme while installing plugins
-			-- Honestly I have no idea why this exists but it's kinda cool ig
 		},
 
 		ui = {
