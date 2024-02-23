@@ -17,6 +17,7 @@ vim.keymap.set("n", "J", "mzJ`z")
 --Copying things into system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set("n", "<leader>d", [["_dd"]])
 
 --Paste from system clipboard
 vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
