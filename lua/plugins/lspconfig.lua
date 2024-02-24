@@ -34,7 +34,7 @@ return {
 			callback = function(event)
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				assert(client, "LSP client crashed?")
-				-- client.server_capabilities.semanticTokensProvider = nil
+				client.server_capabilities.semanticTokensProvider = nil
 				vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 					-- -- Use a sharp border with `FloatBorder` highlights
 					border = "single",

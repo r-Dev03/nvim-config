@@ -43,8 +43,8 @@ return {
 		vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "LineNr", { link = "Normal" })
-		vim.api.nvim_set_hl(0, "LineNrAbove", { link = "Comment" })
-		vim.api.nvim_set_hl(0, "LineNrBelow", { link = "Comment" })
+		vim.api.nvim_set_hl(0, "LineNrAbove", { link = "Normal" })
+		vim.api.nvim_set_hl(0, "LineNrBelow", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "@variable.member", { link = "TSField" })
 		vim.api.nvim_set_hl(0, "@tag.scss", { link = "TSField" })
 		vim.cmd.colorscheme("aki")
@@ -58,7 +58,7 @@ return {
 -- return {
 -- 	"EdenEast/nightfox.nvim",
 -- 	config = function()
--- 		vim.cmd.colorscheme("nightfox")
+-- 		vim.cmd.colorscheme("carbonfox")
 -- 	end,
 -- }
 
