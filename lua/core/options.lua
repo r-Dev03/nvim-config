@@ -13,7 +13,7 @@ vim.opt.guicursor = ""
 vim.opt.expandtab = false
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.linebreak = true
 
 -- You can read about any of these via `:help '<option>'`, e.g. `:help 'number'`
@@ -22,3 +22,8 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 
 vim.opt.termguicolors = true
+
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.virtualedit = "block"
+

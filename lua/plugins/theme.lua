@@ -58,12 +58,12 @@ return {
 -- return {
 -- 	"EdenEast/nightfox.nvim",
 -- 	config = function()
--- 		vim.cmd.colorscheme("duskfox")
+-- 		vim.cmd.colorscheme("nightfox")
 -- 	end,
 -- }
---
---
---
+
+--------------------------
+
 ------------------------------
 -- return {
 -- 	"rose-pine/neovim",
@@ -145,11 +145,7 @@ return {
 
 -------------------------------
 --
---boo 
-
-
-
-
+--boo
 
 -- return {
 -- 'rockerBOO/boo-colorscheme-nvim',
