@@ -84,8 +84,8 @@ return {
 			override_terminal = true,
 			style = {
 				cursorline = { soft = true, contrast_currentline = false },
-				-- tabline = { reverse = true, color = "seiun" },
-				-- search = { reverse = false, color = "sakaeru" },
+				tabline = { reverse = true, color = "seiun" },
+				search = { reverse = false, color = "sakaeru" },
 			},
 			overrides = {}, -- add custom overrides
 			plugins = true,
