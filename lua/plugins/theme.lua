@@ -2,27 +2,66 @@
 --------------------------
 -- return {
 -- 	"rebelot/kanagawa.nvim",
---
 -- 	name = "kanagawa",
 -- 	priority = 1000,
 -- 	config = function()
 -- 		-- See the repo's README for this
+--
 -- 		require("kanagawa").setup({
+-- 			overrides = function(colors)
+-- 				local theme = colors.theme
+-- 				return {
+-- 					Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+-- 					PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+-- 					PmenuSbar = { bg = theme.ui.bg_m1 },
+-- 					PmenuThumb = { bg = theme.ui.bg_p2 },
+-- 				}
+-- 			end,
 -- 			colors = {
 -- 				theme = {
 -- 					all = {
 -- 						ui = {
--- 							bg_gutter = "none"
+-- 							-- bg_gutter = "none",
 -- 						},
 -- 					},
 -- 				},
--- 			}
+-- 			},
 -- 		})
 --
 -- 		vim.cmd.colorscheme("kanagawa-dragon")
 -- 	end,
 -- }
 --------------------------
+--catpuccin theme
+-- return {
+-- 	"catppuccin/nvim",
+-- 	name = "catppuccin",
+-- 	config = function()
+-- 		require("catppuccin").setup({
+-- 			flavour = "mocha",
+-- 			transparent_background = true,
+-- 			integrations = {
+-- 				treesitter = true,
+-- 				native_lsp = { enabled = true },
+-- 				cmp = true,
+-- 				fidget = true,
+-- 				telescope = true,
+-- 				gitsigns = true,
+-- 				which_key = true,
+-- 				mini = true,
+-- 				flash = true,
+-- 			},
+-- 		})
+-- 		vim.api.nvim_set_hl(0, "FloatBorder", {})
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+-- 		vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
+-- 		vim.api.nvim_set_hl(0, "LineNr", { link = "Normal" })
+-- 		vim.api.nvim_set_hl(0, "LineNrAbove", { link = "Comment" })
+-- 		vim.api.nvim_set_hl(0, "LineNrBelow", { link = "Comment" })
+-- 		vim.cmd.colorscheme("catppuccin")
+-- 	end,
+-- }
+--
 
 -- aki theme
 return {
@@ -31,22 +70,31 @@ return {
 	config = function()
 		require("aki").setup({
 			transparent_background = false,
-			contrast_dark = "medium", -- 'hard'|'medium'|'soft'
+			contrast_dark = "medium",
+			contrast_light = "medium",
+			emphasis = {
+				general = { italic = true },
+				comment = {},
+				keyword = { italic = true },
+				type = { type = true },
+			},
 			override_terminal = true,
 			style = {
-				search = { reverse = false },
+				cursorline = { soft = true, contrast_currentline = false },
+				tabline = { reverse = true, color = "seiun" },
+				search = { reverse = false, color = "sakaeru" },
 			},
-			overrides = {
-			}, -- add custom overrides
+			overrides = {}, -- add custom overrides
+			plugins = true,
 		})
 		vim.api.nvim_set_hl(0, "FloatBorder", {})
 		vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "LineNr", { link = "Normal" })
-		vim.api.nvim_set_hl(0, "LineNrAbove", { link = "Normal" })
-		vim.api.nvim_set_hl(0, "LineNrBelow", { link = "Normal" })
+		vim.api.nvim_set_hl(0, "LineNrAbove", { link = "Comment" })
+		vim.api.nvim_set_hl(0, "LineNrBelow", { link = "Comment" })
 		vim.api.nvim_set_hl(0, "@variable.member", { link = "TSField" })
-		vim.api.nvim_set_hl(0, "@tag.scss", { link = "TSField" })
+		-- vim.api.nvim_set_hl(0, "@tag.scss", { link = "TSField" })
 		vim.cmd.colorscheme("aki")
 	end,
 }
@@ -58,12 +106,11 @@ return {
 -- return {
 -- 	"EdenEast/nightfox.nvim",
 -- 	config = function()
--- 		vim.cmd.colorscheme("carbonfox")
+-- 		vim.cmd.colorscheme("duskfox")
 -- 	end,
 -- }
 
 --------------------------
-
 ------------------------------
 -- return {
 -- 	"rose-pine/neovim",

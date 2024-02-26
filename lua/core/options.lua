@@ -11,8 +11,8 @@ vim.opt.guicursor = ""
 
 -- e.g. indentation settings, because we love tabs... right??
 vim.opt.expandtab = false
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.wrap = false
 vim.opt.linebreak = true
 
