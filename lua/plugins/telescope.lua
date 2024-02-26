@@ -9,6 +9,7 @@ return {
 
 	config = function()
 		local telescope = require("telescope")
+		local actions = require("telescope.actions")
 		local builtin = require("telescope.builtin")
 
 		telescope.setup({
@@ -32,6 +33,25 @@ return {
 					"%.wasm",
 					"%.xml",
 					"%.tmTheme",
+				},
+				path_display = { truncate = 2 },
+				prompt_prefix = "  ",
+				selection_caret = "  ",
+				entry_prefix = "   ",
+				multi_icon = " ",
+				mappings = {
+					n = {
+						q = actions.close
+					},
+					i = {
+						["<Esc>"] = actions.close,
+						["<C-j>"] = actions.move_selection_next,
+						["<C-k>"] = actions.move_selection_previous,
+						["<C-s>"] = actions.file_split,
+					},
+				},
+				layout_config = {
+					horizontal = { width = 0.9, preview_width = 0.7 }
 				},
 			},
 		})

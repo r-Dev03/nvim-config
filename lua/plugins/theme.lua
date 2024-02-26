@@ -68,6 +68,9 @@ return {
 	"crispybaccoon/aki",
 	commit = "53c72e1c30f13646515314da96f098e0dfc150a1",
 	config = function()
+		-- require to trigger population of aki_colors table
+		require("aki.colors")
+		_G.aki_colors = vim.tbl_deep_extend("force", _G.aki_colors, { bg3 = _G.aki_colors.fg2 })
 		require("aki").setup({
 			transparent_background = false,
 			contrast_dark = "medium",
@@ -81,8 +84,8 @@ return {
 			override_terminal = true,
 			style = {
 				cursorline = { soft = true, contrast_currentline = false },
-				tabline = { reverse = true, color = "seiun" },
-				search = { reverse = false, color = "sakaeru" },
+				-- tabline = { reverse = true, color = "seiun" },
+				-- search = { reverse = false, color = "sakaeru" },
 			},
 			overrides = {}, -- add custom overrides
 			plugins = true,
@@ -94,7 +97,6 @@ return {
 		vim.api.nvim_set_hl(0, "LineNrAbove", { link = "Comment" })
 		vim.api.nvim_set_hl(0, "LineNrBelow", { link = "Comment" })
 		vim.api.nvim_set_hl(0, "@variable.member", { link = "TSField" })
-		-- vim.api.nvim_set_hl(0, "@tag.scss", { link = "TSField" })
 		vim.cmd.colorscheme("aki")
 	end,
 }
