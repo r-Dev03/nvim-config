@@ -12,10 +12,9 @@ return {
 		-- <https://github.com/williamboman/mason.nvim>
 		--
 		lspconfig.tsserver.setup({})
-		lspconfig.angularls.setup({})
-		lspconfig.tailwindcss.setup({})
-		lspconfig.rust_analyzer.setup({})
+		lspconfig.rnix.setup({})
 		lspconfig.lua_ls.setup({})
+		lspconfig.tailwindcss.setup({})
 		lspconfig.clangd.setup({})
 		lspconfig.pyright.setup({})
 		lspconfig.eslint.setup({})

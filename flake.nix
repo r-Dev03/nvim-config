@@ -17,10 +17,11 @@
           pkgs.mkShell
           {
             packages = [ 
-			  			lua
-			  			luajit
+							pkgs.lua
+			  			pkgs.luajit
+							pkgs.nodejs_18
 						];
           };
       	}
     	);
-
+}

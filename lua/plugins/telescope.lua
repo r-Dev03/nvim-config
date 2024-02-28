@@ -47,7 +47,7 @@ return {
 						["<Esc>"] = actions.close,
 						["<C-j>"] = actions.move_selection_next,
 						["<C-k>"] = actions.move_selection_previous,
-						["<C-s>"] = actions.file_split,
+						["<C-s>"] = actions.file_vsplit,
 					},
 				},
 				layout_config = {

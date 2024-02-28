@@ -12,6 +12,7 @@ return {
 				"lua",
 				"javascript",
 				"typescript",
+				"nix",
 				"html",
 				"scss",
 				"css",

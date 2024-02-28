@@ -37,7 +37,7 @@ vim.keymap.set("v", "<leader>sr", [[:s///gI<Left><Left><Left><Left>]])
 vim.keymap.set("n", "<leader>th", "<CMD> Telescope help_tags<CR>", { desc = "Search help tags" })
 
 -- <<< Quickfix list >>>
--- vim.keymap.set("n", "<leader>qo", ":copen<cr>", { desc = "Open quickfix list" })
--- vim.keymap.set("n", "<leader>qc", ":cclose<cr>", { desc = "Close quickfix list" })
--- vim.keymap.set("n", "<leader>qn", ":cn<cr>", { desc = "Next quickfix item" })
--- vim.keymap.set("n", "<leader>qp", ":cp<cr>", { desc = "Prev quickfix item" })
+vim.keymap.set("n", "<leader>qo", ":copen<cr>", { desc = "Open quickfix list" })
+vim.keymap.set("n", "<leader>qc", ":cclose<cr>", { desc = "Close quickfix list" })
+vim.keymap.set("n", "<leader>qn", ":cn<cr>", { desc = "Next quickfix item" })
+vim.keymap.set("n", "<leader>qp", ":cp<cr>", { desc = "Prev quickfix item" })
