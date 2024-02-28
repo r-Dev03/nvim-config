@@ -9,6 +9,7 @@ return {
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				markdown = { "prettier" },
+				nix = { "alejandra", "nixpkgs_fmt" },
 				css = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },

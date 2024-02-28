@@ -16,12 +16,12 @@
         devShells.${system}.default =
           pkgs.mkShell
           {
-            packages = [ 
-							pkgs.lua
-			  			pkgs.luajit
-							pkgs.nodejs_18
-						];
+            packages = [
+              pkgs.lua
+              pkgs.luajit
+              pkgs.nodejs_18
+            ];
           };
-      	}
-    	);
+      }
+    );
 }

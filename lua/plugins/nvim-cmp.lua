@@ -17,8 +17,8 @@ return {
 	config = function()
 		local cmp = require("cmp")
 		local format = require("lspkind").cmp_format
-		-- local kind_icons = require("utils.kind_icons")
 		vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
 
 		cmp.setup({
 			snippet = {
