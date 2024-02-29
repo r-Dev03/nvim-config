@@ -7,7 +7,6 @@ return {
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
 		"saadparwaiz1/cmp_luasnip",
-		"onsails/lspkind.nvim",
 		{
 			"L3MON4D3/LuaSnip",
 			build = "make install_jsregexp",
@@ -16,9 +15,35 @@ return {
 
 	config = function()
 		local cmp = require("cmp")
-		local format = require("lspkind").cmp_format
+		local kind_icons = {
+			Text = "",
+			Method = "󰆧",
+			Function = "",
+			Constructor = "",
+			Field = "󰇽",
+			Variable = "󰂡",
+			Class = "󰠱",
+			Interface = "",
+			Module = "",
+			Property = "󰜢",
+			Unit = "",
+			Value = "󰎠",
+			Enum = "",
+			Keyword = "󰌋",
+			Snippet = "",
+			Color = "󰏘",
+			File = "󰈙",
+			Reference = "",
+			Folder = "󰉋",
+			EnumMember = "",
+			Constant = "󰏿",
+			Struct = "",
+			Event = "",
+			Operator = "󰆕",
+			TypeParameter = "󰅲",
+			Copilot = "󱁉",
+		}
 		vim.opt.completeopt = { "menu", "menuone", "noselect" }
-
 
 		cmp.setup({
 			snippet = {
@@ -47,12 +72,13 @@ return {
 				{ name = "path" },
 			}),
 			formatting = {
-				format = format({
-					mode = "symbol",
-					maxwidth = 50,
-					ellipsis_char = "...",
-					show_labelDetails = true,
-				}),
+				format = function(_, vim_item)
+					vim_item.kind = kind_icons[vim_item.kind]
+					-- Uncomment to see which sources provide each completion (useful for debugging)
+					-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+					-- vim_item.menu = entry.source.name
+					return vim_item
+				end,
 			},
 		})
 
