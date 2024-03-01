@@ -55,6 +55,11 @@ return {
 				},
 			},
 		})
+		
+		vim.api.nvim_set_hl(0, "TelescopeNormal", { link = "NormalFloat" })
+		vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "TelescopeNormal" })
+		vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { link = "TelescopeNormal" })
+		vim.api.nvim_set_hl(0, "TelescopeMultiIcon", { link = "TelescopeNormal" })
 
 		-- See `:help telescope.builtin`
 		vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })

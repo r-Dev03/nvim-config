@@ -10,6 +10,7 @@ return {
 				typescript = { "prettier" },
 				markdown = { "prettier" },
 				nix = { "alejandra", "nixpkgs_fmt" },
+				typst = {"typstfmt"},
 				css = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },

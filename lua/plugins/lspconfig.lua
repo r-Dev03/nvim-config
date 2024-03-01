@@ -13,6 +13,7 @@ return {
 		--
 		lspconfig.tsserver.setup({})
 		lspconfig.rnix.setup({})
+		lspconfig.typst_lsp.setup({})
 		lspconfig.lua_ls.setup({})
 		lspconfig.tailwindcss.setup({})
 		lspconfig.clangd.setup({})

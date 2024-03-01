@@ -22,6 +22,10 @@ return {
 				"java",
 				"markdown",
 				"markdown_inline",
+				"typst",
+			},
+			ignore_install = {
+				"latex", -- using vimtex instead
 			},
 			auto_install = true,
 			highlight = {
