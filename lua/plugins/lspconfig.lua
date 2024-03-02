@@ -23,6 +23,17 @@ return {
 		lspconfig.html.setup({})
 		lspconfig.cssls.setup({})
 		lspconfig.vale_ls.setup({})
+		lspconfig.rust_analyzer.setup({
+			settings = {
+				["rust-analyzer"] = {
+					check = {
+						command = "clippy",
+						extraArgs = { "--tests" },
+						features = "all",
+					},
+				},
+			},
+		})
 
 		-- Another cool thing is `:help LspAttach`
 		--   (this is an autocommand, see `:help autocmd` and `:help nvim_create_autocmd`)

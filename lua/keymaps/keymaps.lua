@@ -31,13 +31,13 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- S&R -> replace word under cursor across file
-vim.keymap.set("n", "<leader>s", [[:%s/<C-r><C-w>//gl<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>sr", [[:%s/<C-r><C-w>//gl<Left><Left><Left>]])
 -- S&R -> replace selected phrase across file
-vim.keymap.set("v", "<leader>s", [[y:%s/<C-r>"//gl<Left><Left><Left>]])
+-- vim.keymap.set("v", "<leader>s", [[y:%s/<C-r>"//gl<Left><Left><Left>]])
 -- S&R -> select text, press and write what to search for and replace
-vim.keymap.set("v", "<leader>sr", [[:s///gI<Left><Left><Left><Left>]])
-
-vim.keymap.set("n", "<leader>th", "<CMD> Telescope help_tags<CR>", { desc = "Search help tags" })
+-- vim.keymap.set("v", "<leader>sr", [[:s///gI<Left><Left><Left><Left>]])
+--
+-- vim.keymap.set("n", "<leader>th", "<CMD> Telescope help_tags<CR>", { desc = "Search help tags" })
 
 -- <<< Quickfix list >>>
 vim.keymap.set("n", "<leader>qo", ":copen<cr>", { desc = "Open quickfix list" })

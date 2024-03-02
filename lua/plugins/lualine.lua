@@ -3,7 +3,6 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependecies = { "nvim-tree/nvim-web-devicons", opt = true },
 		config = function()
-			local vim_symbol = ""
 			require("lualine").setup({
 				options = {
 					icons_enabled = true,

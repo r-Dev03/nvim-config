@@ -5,6 +5,7 @@ return {
 
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		"debugloop/telescope-undo.nvim",
 	},
 
 	config = function()
@@ -35,7 +36,7 @@ return {
 					"%.tmTheme",
 				},
 				path_display = { truncate = 2 },
-				prompt_prefix = "  ",
+				prompt_prefix = "  ",
 				selection_caret = "  ",
 				entry_prefix = "   ",
 				multi_icon = " ",
@@ -54,8 +55,8 @@ return {
 					horizontal = { width = 0.9, preview_width = 0.7 }
 				},
 			},
+			require("telescope").load_extension("undo")
 		})
-		
 		vim.api.nvim_set_hl(0, "TelescopeNormal", { link = "NormalFloat" })
 		vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "TelescopeNormal" })
 		vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { link = "TelescopeNormal" })
@@ -65,6 +66,10 @@ return {
 		vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
 		vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
 		vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
+		vim.keymap.set("n", "<leader>sb", ":Telescope buffers<CR>", { desc = "Search for active buffers" })
+		vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<cr>")
+  	vim.keymap.set("n", "<leader>sh", ":Telescope help_tags<CR>", { desc = "Search for help tags" })
+  	vim.keymap.set("n", "<leader>sd", ":Telescope find_files find_command=find,-type,d,!,-name,'node_modules'<cr>", { desc = "Search for directories"})
 		vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
 	end,
 }
