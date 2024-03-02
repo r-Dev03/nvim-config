@@ -1,6 +1,6 @@
 return {
 	"mfussenegger/nvim-lint",
-	-- event = "VeryLazy",
+	event = "VeryLazy",
 	config = function()
 		local filetypes = {
 			"javascript",

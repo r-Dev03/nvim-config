@@ -1,4 +1,4 @@
 return {
-	-- event = "VeryLazy",
+	event = "VeryLazy",
 	'christoomey/vim-tmux-navigator'
 }

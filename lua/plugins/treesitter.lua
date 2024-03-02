@@ -28,6 +28,7 @@ return {
 				"tsx",
 				"typst",
 				"vim",
+				"vimdoc",
 			},
 			ignore_install = {
 				"latex", -- using vimtex instead
