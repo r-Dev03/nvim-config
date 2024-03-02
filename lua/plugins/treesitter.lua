@@ -12,7 +12,6 @@ return {
 				"c",
 				"cpp",
 				"css",
-				"gitcommit",
 				"html",
 				"javascript",
 				"java",
