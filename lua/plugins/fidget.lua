@@ -1,5 +1,5 @@
 return {
-	event = "VeryLazy",
+	-- event = "VeryLazy",
     "j-hui/fidget.nvim",
     config = function()
         require("fidget").setup({

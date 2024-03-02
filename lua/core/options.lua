@@ -27,4 +27,5 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.virtualedit = "block"
 
+vim.opt.undofile = true
 
