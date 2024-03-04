@@ -51,6 +51,17 @@ return {
 					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 				end,
 			},
+			--Radium cmp settings
+			-- window = {
+			-- 	documentation = { border = "solid" },
+			-- 	completion = {
+			-- 		border = "none",
+			-- 		completeopt = "menu,menuone,noinsert",
+			-- 		col_offset = 0,
+			-- 		side_padding = 1,
+			-- 		keyword_length = 1,
+			-- 	},
+			-- },
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),

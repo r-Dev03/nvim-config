@@ -35,6 +35,9 @@ return {
 					"%.xml",
 					"%.tmTheme",
 				},
+				--Radium border settings
+				-- border = {},
+				-- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
 				path_display = { truncate = 2 },
 				prompt_prefix = "  ",
 				selection_caret = "  ",
@@ -42,7 +45,7 @@ return {
 				multi_icon = " ",
 				mappings = {
 					n = {
-						q = actions.close
+						q = actions.close,
 					},
 					i = {
 						["<Esc>"] = actions.close,
@@ -52,24 +55,44 @@ return {
 					},
 				},
 				layout_config = {
-					horizontal = { width = 0.9, preview_width = 0.7 }
+					horizontal = { width = 0.9, preview_width = 0.7 },
 				},
 			},
-			require("telescope").load_extension("undo")
+			require("telescope").load_extension("undo"),
 		})
+
 		vim.api.nvim_set_hl(0, "TelescopeNormal", { link = "NormalFloat" })
 		vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "TelescopeNormal" })
 		vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { link = "TelescopePreviewGroup" })
 		vim.api.nvim_set_hl(0, "TelescopeMultiIcon", { link = "TelescopeNormal" })
 
+		--Radium telescope settings
+		-- vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "#161B20" })
+		-- vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "#161B20", fg = "#101317" })
+		-- vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "#161B20" })
+		-- vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "#161B20", fg = "#101317" })
+		-- vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "#161B20" })
+		-- vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = "#161B20", fg = "#101317" })
+		-- vim.api.nvim_set_hl(0, "TelescopePromptCounter", { bg = "#161B20" })
+
 		-- See `:help telescope.builtin`
-		vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-		vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-		vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
+		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
+		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+		vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
 		vim.keymap.set("n", "<leader>sb", ":Telescope buffers<CR>", { desc = "Search for active buffers" })
 		vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<cr>")
-  	vim.keymap.set("n", "<leader>sh", ":Telescope help_tags<CR>", { desc = "Search for help tags" })
-  	vim.keymap.set("n", "<leader>sd", ":Telescope find_files find_command=find,-type,d,!,-name,'node_modules'<cr>", { desc = "Search for directories"})
-		vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
+		vim.keymap.set("n", "<leader>sh", ":Telescope help_tags<CR>", { desc = "Search for help tags" })
+		vim.keymap.set(
+			"n",
+			"<leader>sd",
+			":Telescope find_files find_command=find,-type,d,!,-name,'node_modules'<cr>",
+			{ desc = "Search for directories" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>/",
+			builtin.current_buffer_fuzzy_find,
+			{ desc = "[/] Fuzzily search in current buffer" }
+		)
 	end,
 }
