@@ -26,6 +26,10 @@ vim.keymap.set("n", "<leader>d", [["_dd"]])
 vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
 vim.keymap.set("v", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
 
+--Automatically reselect visual selection after indenting
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
+
 --Middle cursor after half page jumping
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
