@@ -51,21 +51,21 @@ return {
 					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 				end,
 			},
-			--Radium cmp settings
-			-- window = {
-			-- 	documentation = { border = "solid" },
-			-- 	completion = {
-			-- 		border = "none",
-			-- 		completeopt = "menu,menuone,noinsert",
-			-- 		col_offset = 0,
-			-- 		side_padding = 1,
-			-- 		keyword_length = 1,
-			-- 	},
-			-- },
+			-- Radium cmp settings
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				documentation = { border = "solid" },
+				completion = {
+					border = "none",
+					completeopt = "menu,menuone,noinsert",
+					col_offset = 0,
+					side_padding = 1,
+					keyword_length = 1,
+				},
 			},
+			-- window = {
+			-- 	completion = cmp.config.window.bordered(),
+			-- 	documentation = cmp.config.window.bordered(),
+			-- },
 			mapping = cmp.mapping.preset.insert({
 				["<C-j>"] = cmp.mapping({
 					i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),

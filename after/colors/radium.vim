@@ -634,7 +634,7 @@ hi UndotreeTimeStamp guifg=#70C0BA
 hi VertSplit guifg=#171C21
 hi VirtColumn guibg=#101317 guifg=#171A20
 " hi Visual guibg=#192023
-hi Visual guibg =#454756
+hi Visual guibg=#454756
 hi WarningMsg guifg=#FB7373
 hi WhichKeyBorder guibg=#0E1014
 hi WhichKeyDesc guifg=#FFE59E

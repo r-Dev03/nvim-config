@@ -35,9 +35,9 @@ return {
 					"%.xml",
 					"%.tmTheme",
 				},
-				--Radium border settings
-				-- border = {},
-				-- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+				-- Radium border settings
+				border = {},
+				borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
 				path_display = { truncate = 2 },
 				prompt_prefix = "  ",
 				selection_caret = "  ",
