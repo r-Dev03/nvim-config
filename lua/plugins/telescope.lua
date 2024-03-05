@@ -36,10 +36,10 @@ return {
 					"%.tmTheme",
 				},
 				-- Radium border settings
-				border = {},
-				borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+				-- border = {},
+				-- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
 				path_display = { truncate = 2 },
-				prompt_prefix = "  ",
+				prompt_prefix = "   ",
 				selection_caret = "  ",
 				entry_prefix = "   ",
 				multi_icon = " ",
@@ -61,7 +61,7 @@ return {
 			require("telescope").load_extension("undo"),
 		})
 
-		vim.api.nvim_set_hl(0, "TelescopeNormal", { link = "NormalFloat" })
+		vim.api.nvim_set_hl(0, "TelescopeNormal", { link = "TelescopeResultsComment" })
 		vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "TelescopeNormal" })
 		vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { link = "TelescopePreviewGroup" })
 		vim.api.nvim_set_hl(0, "TelescopeMultiIcon", { link = "TelescopeNormal" })
@@ -74,25 +74,16 @@ return {
 		-- vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "#161B20" })
 		-- vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = "#161B20", fg = "#101317" })
 		-- vim.api.nvim_set_hl(0, "TelescopePromptCounter", { bg = "#161B20" })
-
+		-- vim.api.nvim_set_hl(0, "TelescopeSelection", { link = "Visual" })
+		--
 		-- See `:help telescope.builtin`
 		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 		vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
 		vim.keymap.set("n", "<leader>sb", ":Telescope buffers<CR>", { desc = "Search for active buffers" })
-		vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<cr>")
+		vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<cr>", {desc = "Search undo history" })
 		vim.keymap.set("n", "<leader>sh", ":Telescope help_tags<CR>", { desc = "Search for help tags" })
-		vim.keymap.set(
-			"n",
-			"<leader>sd",
-			":Telescope find_files find_command=find,-type,d,!,-name,'node_modules'<cr>",
-			{ desc = "Search for directories" }
-		)
-		vim.keymap.set(
-			"n",
-			"<leader>/",
-			builtin.current_buffer_fuzzy_find,
-			{ desc = "[/] Fuzzily search in current buffer" }
-		)
+		vim.keymap.set("n", "<leader>sd", ":Telescope find_files find_command=find,-type,d,!,-name,'node_modules'<cr>", { desc = "Search for directories" })
+		vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "[/] Fuzzily search in current buffer" })
 	end,
 }

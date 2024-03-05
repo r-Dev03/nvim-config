@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("radium")
+-- vim.cmd.colorscheme("radium")
 
 -- Load `./lua/core/options.lua`
 require("core.options")

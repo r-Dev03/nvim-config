@@ -1,4 +1,4 @@
-" Radium
+"Radium
 " A radioactive colorscheme.
 " Authored by: https://github.com/dharmx
 " License: GPL-3.0

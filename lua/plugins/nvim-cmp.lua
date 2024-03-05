@@ -11,7 +11,7 @@ return {
 			"L3MON4D3/LuaSnip",
 			build = "make install_jsregexp",
 		},
-	},
+},
 
 	config = function()
 		local cmp = require("cmp")
@@ -52,20 +52,20 @@ return {
 				end,
 			},
 			-- Radium cmp settings
-			window = {
-				documentation = { border = "solid" },
-				completion = {
-					border = "none",
-					completeopt = "menu,menuone,noinsert",
-					col_offset = 0,
-					side_padding = 1,
-					keyword_length = 1,
-				},
-			},
 			-- window = {
-			-- 	completion = cmp.config.window.bordered(),
-			-- 	documentation = cmp.config.window.bordered(),
+			-- 	documentation = { border = "single" },
+			-- 	completion = {
+			-- 		border = "single",
+			-- 		completeopt = "menu,menuone,noinsert",
+			-- 		col_offset = 0,
+			-- 		side_padding = 1,
+			-- 		keyword_length = 1,
+			-- 	},
 			-- },
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
+			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-j>"] = cmp.mapping({
 					i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
