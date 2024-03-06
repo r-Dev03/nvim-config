@@ -61,7 +61,7 @@ return {
 			require("telescope").load_extension("undo"),
 		})
 
-		vim.api.nvim_set_hl(0, "TelescopeNormal", { link = "TelescopeResultsComment" })
+		vim.api.nvim_set_hl(0, "TelescopeNormal", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "TelescopeNormal" })
 		vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { link = "TelescopePreviewGroup" })
 		vim.api.nvim_set_hl(0, "TelescopeMultiIcon", { link = "TelescopeNormal" })

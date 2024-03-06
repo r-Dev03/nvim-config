@@ -89,7 +89,6 @@ return {
 			overrides = {}, -- add custom overrides
 			plugins = true,
 		})
-		vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "LineNr", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "LineNrAbove", { link = "Comment" })
@@ -97,6 +96,7 @@ return {
 		vim.api.nvim_set_hl(0, "@variable.member", { link = "TSField" })
 		vim.cmd.colorscheme("aki")
 		vim.api.nvim_set_hl(0, "Normal", { bg = "#101317", fg = "#D4D4D5" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "FloatBorder", {link = "Normal"})
 		vim.api.nvim_set_hl(0, "Visual", { cterm = none, ctermfg = none, ctermbg = 237, bg = "#454756" })
 	end,
