@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-
+	event = "BufAdd",
 	config = function()
 		local lspconfig = require("lspconfig")
 
