@@ -6,27 +6,19 @@ return {
 			opt = true,
 		},
 		config = function()
-			local M = {}
-
-			function M.lsp_component()
-				-- local encoding = vim.opt.fileencoding:get()
-				-- return encoding ~= "" and string.format("%%#StatuslineModeSeparatorOther# %s", encoding) or ""
-				-- 0.9 = vim.lsp.get_active_clients()
-				-- 0.10 = vim.lsp.get_clients()
-				local clients = vim.lsp.get_active_clients()
-
+			local lualine_lsp = function()
+				local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
+				local buf_client_names = {}
 				local icon = " "
 
-				if next(clients) == nil then
-					return string.format("%%#StatuslineLSPIconNone#%s %%#StatuslineWhite# None ", icon)
+				for _, client in pairs(buf_clients) do
+					table.insert(buf_client_names, client.name)
 				end
-				for _, client in ipairs(clients) do
-					return clients ~= ""
-							and string.format("%%#StatuslineLSPIconOk#%s %%#StatuslineWhite#%s", icon, client.name)
-						or ""
-				end
-			end
 
+				local base = table.concat(buf_client_names, ", ")
+				return icon..base
+			end
+			--
 			local theme = require("aki.colors").setup({})
 
 			local colors = {
@@ -124,7 +116,7 @@ return {
 
 					lualine_z = {
 						{
-							M.lsp_component(),
+							lualine_lsp,
 						},
 					},
 				},
