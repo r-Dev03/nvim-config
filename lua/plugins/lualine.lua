@@ -14,9 +14,15 @@ return {
 				for _, client in pairs(buf_clients) do
 					table.insert(buf_client_names, client.name)
 				end
-
-				local base = table.concat(buf_client_names, ", ")
-				return icon..base
+				--
+				-- local base = table.concat(buf_client_names, ", ")
+				if #buf_client_names > 1 then
+					return icon .. buf_client_names[2]
+				elseif #buf_client_names > 0 then
+					return icon .. buf_client_names[1]
+				else
+					return icon .. "No LSP"
+				end
 			end
 			--
 			local theme = require("aki.colors").setup({})
@@ -43,11 +49,13 @@ return {
 				a = { fg = colors.fg2, bg = colors.bg3 },
 				b = { bg = colors.bg4, fg = colors.fg3 },
 				c = { bg = colors.bg4, fg = colors.fg3 },
+				z = { bg = colors.bg4, fg = colors.fg3 },
 			}
 
 			adachi.insert = {
 				a = { fg = colors.bg0, bg = colors.insert },
 				b = { bg = colors.bg0, fg = colors.insert },
+				z = { bg = colors.bg0, fg = colors.insert },
 			}
 
 			adachi.command = adachi.normal
@@ -55,6 +63,7 @@ return {
 			adachi.visual = {
 				a = { fg = colors.bg0, bg = colors.visual },
 				b = { bg = colors.bg0, fg = colors.visual },
+				z = { bg = colors.bg0, fg = colors.visual },
 			}
 
 			adachi.replace = adachi.insert
