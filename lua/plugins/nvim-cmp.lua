@@ -1,6 +1,7 @@
 return {
 	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
+	event = { "VeryLazy" },
+
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-nvim-lua",
@@ -12,7 +13,7 @@ return {
 			"L3MON4D3/LuaSnip",
 			build = "make install_jsregexp",
 		},
-},
+	},
 
 	config = function()
 		local cmp = require("cmp")
