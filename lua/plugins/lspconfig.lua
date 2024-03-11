@@ -23,6 +23,10 @@ return {
 		lspconfig.html.setup({})
 		lspconfig.cssls.setup({})
 		lspconfig.vale_ls.setup({})
+		lspconfig.matlab_ls.setup({
+			root_dir = vim.fn.getcwd,
+			settings = { MATLAB = { telemetry = false } },
+		})
 		lspconfig.rust_analyzer.setup({
 			settings = {
 				["rust-analyzer"] = {

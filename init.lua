@@ -38,8 +38,7 @@ local lazy_setup = function()
 		},
 
 		ui = {
-			-- Cool border for lazy floaty window yes
-			border = "solid",
+			border = "rounded",
 		},
 	})
 end

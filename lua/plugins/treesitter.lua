@@ -18,6 +18,7 @@ return {
 				"lua",
 				"markdown",
 				"markdown_inline",
+				"matlab",
 				"nix",
 				"python",
 				"rust",

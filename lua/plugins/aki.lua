@@ -32,7 +32,7 @@ return {
 		vim.cmd.colorscheme("aki")
 		vim.api.nvim_set_hl(0, "Normal", { bg = "#101317", fg = "#D4D4D5" })
 		vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
-		vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
+		vim.api.nvim_set_hl(0, "FloatBorder", { link = "Comment" })
 		vim.api.nvim_set_hl(0, "Visual", { cterm = none, ctermfg = none, ctermbg = 237, bg = "#454756" })
 
 		--Telescope Highlighting Overrides
@@ -44,10 +44,5 @@ return {
 		vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = "#939DBD", fg = "#101317" })
 		vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = "#CA6D73", fg = "#101317" })
 		vim.api.nvim_set_hl(0, "TelescopePromptCounter", { link = "Telescope" })
-
-		--Lualine Highlighting Overrides
-		vim.api.nvim_set_hl(0, "lualine_a_normal", { bg = "#1d2529", fg = "#707378" })
-		vim.api.nvim_set_hl(0, "lualine_b_normal", { bg = "#111419", fg = "#5e666a" })
-		vim.api.nvim_set_hl(0, "lualine_c_normal", { bg = "#111419", fg = "#5e666a" })
 	end,
 }

@@ -48,22 +48,22 @@ return {
 			adachi.normal = {
 				a = { fg = colors.fg2, bg = colors.bg3 },
 				b = { bg = colors.bg4, fg = colors.fg3 },
-				c = { bg = colors.bg4, fg = colors.fg3 },
+				c = { bg = colors.bg4, fg = colors.fg2 },
 				z = { bg = colors.bg4, fg = colors.fg3 },
 			}
 
 			adachi.insert = {
-				a = { fg = colors.bg0, bg = colors.insert },
-				b = { bg = colors.bg0, fg = colors.insert },
-				z = { bg = colors.bg0, fg = colors.insert },
+				a = { fg = colors.bg3, bg = colors.insert },
+				b = { bg = colors.bg4, fg = colors.insert },
+				z = { bg = colors.bg4, fg = colors.insert },
 			}
 
 			adachi.command = adachi.normal
 
 			adachi.visual = {
-				a = { fg = colors.bg0, bg = colors.visual },
-				b = { bg = colors.bg0, fg = colors.visual },
-				z = { bg = colors.bg0, fg = colors.visual },
+				a = { fg = colors.bg3, bg = colors.visual },
+				b = { bg = colors.bg4, fg = colors.visual },
+				z = { bg = colors.bg4, fg = colors.visual },
 			}
 
 			adachi.replace = adachi.insert
@@ -109,7 +109,7 @@ return {
 						"diagnostics",
 					},
 					lualine_c = {
-						"filename",
+						{ "filename", path = 1, symbols = { modified = "*" } },
 					},
 					lualine_x = {
 						{
