@@ -3,7 +3,8 @@ return {
 	event = "BufAdd",
 	config = function()
 		local lspconfig = require("lspconfig")
-
+		local win = require("lspconfig.ui.windows")
+		win.default_options.border = "rounded"
 		-- Literally just do this for any language server you want. A list of supported ones is here:
 		-- <https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md>
 		--
@@ -15,7 +16,9 @@ return {
 		lspconfig.rnix.setup({})
 		lspconfig.typst_lsp.setup({})
 		lspconfig.lua_ls.setup({})
-		lspconfig.tailwindcss.setup({})
+		lspconfig.tailwindcss.setup({
+			autostart = false,
+		})
 		lspconfig.clangd.setup({})
 		lspconfig.pyright.setup({})
 		lspconfig.eslint.setup({})
@@ -52,7 +55,7 @@ return {
 				client.server_capabilities.semanticTokensProvider = nil
 				vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 					-- -- Use a sharp border with `FloatBorder` highlights
-					border = "single",
+					border = "rounded",
 					-- -- add the title in hover float window
 					title = "hover",
 				})
