@@ -20,11 +20,11 @@ return {
 				tabline = { reverse = true, color = "seiun" },
 				search = { reverse = false, color = "sakaeru" },
 			},
-			overrides = {}, -- add custom overrides
+			overrides = {},
 			plugins = true,
 		})
 		-- General Highlighting Overrides
-		vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
+		vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Comment" })
 		vim.api.nvim_set_hl(0, "LineNr", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "LineNrAbove", { link = "Comment" })
 		vim.api.nvim_set_hl(0, "LineNrBelow", { link = "Comment" })

@@ -5,7 +5,7 @@
 --
 -- Just put whatever you want here, I recommend you either look through `:help options-list`,
 -- kickstart's options, or other people's dotfiles.
-
+--
 -- Cursor config
 vim.opt.guicursor = ""
 
@@ -28,4 +28,5 @@ vim.opt.splitbelow = true
 vim.opt.virtualedit = "block"
 
 vim.opt.undofile = true
+vim.opt.cmdheight = 0
 
