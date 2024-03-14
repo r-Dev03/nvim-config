@@ -17,7 +17,6 @@ return {
 				sh = { "beautysh" },
 				lua = { "stylua" },
 				python = { "black", "isort" },
-				-- rust = { "rustfmt" },
 			},
 		})
 

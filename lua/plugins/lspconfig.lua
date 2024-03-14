@@ -5,31 +5,38 @@ return {
 		local lspconfig = require("lspconfig")
 		local win = require("lspconfig.ui.windows")
 		win.default_options.border = "rounded"
-		-- Literally just do this for any language server you want. A list of supported ones is here:
-		-- <https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md>
-		--
-		-- All this does is _configure_ language servers, you still have to install them somehow.
-		-- You can either install them using your system's package manager or a plugin like mason:
-		-- <https://github.com/williamboman/mason.nvim>
-		--
+
 		lspconfig.tsserver.setup({})
+
 		lspconfig.rnix.setup({})
+
 		lspconfig.typst_lsp.setup({})
+
 		lspconfig.lua_ls.setup({})
+
+		lspconfig.clangd.setup({})
+
+		lspconfig.pyright.setup({})
+
+		lspconfig.eslint.setup({})
+
+		lspconfig.jdtls.setup({})
+
+		lspconfig.html.setup({})
+
+		lspconfig.cssls.setup({})
+
+		lspconfig.vale_ls.setup({})
+
 		lspconfig.tailwindcss.setup({
 			autostart = false,
 		})
-		lspconfig.clangd.setup({})
-		lspconfig.pyright.setup({})
-		lspconfig.eslint.setup({})
-		lspconfig.jdtls.setup({})
-		lspconfig.html.setup({})
-		lspconfig.cssls.setup({})
-		lspconfig.vale_ls.setup({})
+
 		lspconfig.matlab_ls.setup({
 			root_dir = vim.fn.getcwd,
 			settings = { MATLAB = { telemetry = false } },
 		})
+
 		lspconfig.rust_analyzer.setup({
 			settings = {
 				["rust-analyzer"] = {
