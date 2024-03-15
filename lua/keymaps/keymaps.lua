@@ -4,13 +4,6 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<Leader>e", vim.cmd.Ex)
 vim.keymap.set("i", "<C-BS>", "<Esc>cvb", {})
 
-vim.keymap.set("", "<C-c>", "<Esc>", {})
-
---Remapping C-c to escape insert mode
--- vim.keymap.set("i", "<C-c>", "<Esc>")
--- vim.keymap.set("v", "<C-c>", "<Esc>")
--- vim.keymap.set("n", "<C-c>", "<Esc>")
-
 -- Moving a block of code using C/V in visual mode with movement keys
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
