@@ -1,8 +1,5 @@
--- Read `:help lazy.nvim-lazy.nvim-plugin-spec` or
--- <https://github.com/folke/lazy.nvim#-plugin-spec>
 return {
 	"nvim-telescope/telescope.nvim",
-
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"debugloop/telescope-undo.nvim",
@@ -58,8 +55,8 @@ return {
 					horizontal = { width = 0.9, preview_width = 0.7 },
 				},
 			},
-			require("telescope").load_extension("undo"),
 		})
+		telescope.load_extension("undo")
 
 		--Radium telescope settings
 		-- vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "#161B20" })
@@ -72,14 +69,15 @@ return {
 		-- vim.api.nvim_set_hl(0, "TelescopeSelection", { link = "Visual" })
 		--
 		-- See `:help telescope.builtin`
-		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
+		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[F]ind by [G]rep" })
 		vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
-		vim.keymap.set("n", "<leader>sb", ":Telescope buffers<CR>", { desc = "Search for active buffers" })
-		vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<cr>", {desc = "Search undo history" })
-		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Search for help tags" })
-		vim.keymap.set("n", "<leader>sd", ":Telescope find_files find_command=find,-type,d,!,-name,'node_modules'<cr>", { desc = "Search for directories" })
-		vim.keymap.set("n", "<leader>sl", ":Telescope highlights <CR>", { desc = "Search for highlights" })
-		vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "[/] Fuzzily search in current buffer" })
+		vim.keymap.set("n", "<leader>fm", ":Telescope media<CR>", { desc = "[F]ind [M]edia files" })
+		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "[F]ind active [B]uffers" })
+		vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "[F]ind [U]ndo history" })
+		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind help tags" })
+		vim.keymap.set("n", "<leader>fd", ":Telescope find_files find_command=find,-type,d,!,-name,'node_modules'<cr>", { desc = "[F]ind [D]irectories" })
+		vim.keymap.set("n", "<leader>fl", ":Telescope highlights <CR>", { desc = "[F]ind high[L]ights" })
+		vim.keymap.set("n", "<leader>f/", builtin.current_buffer_fuzzy_find, { desc = "[/] Fuzzily [F]ind in current buffer" })
 	end,
 }

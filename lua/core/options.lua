@@ -24,3 +24,5 @@ vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.cmdheight = 0
 
+-- qf list builtin plugins
+vim.cmd [[ packadd cfilter ]]

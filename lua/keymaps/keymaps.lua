@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 -- `Space + e` will open netrw.
 vim.keymap.set("n", "<Leader>e", vim.cmd.Ex)

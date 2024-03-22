@@ -20,6 +20,6 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>f", conform.format)
+		vim.keymap.set("n", "<localleader>f", conform.format)
 	end,
 }
