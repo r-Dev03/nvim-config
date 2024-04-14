@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	-- event = "BufAdd",
+	-- event = "VeryLazy",
 	config = function()
 		local lspconfig = require("lspconfig")
 		local win = require("lspconfig.ui.windows")
@@ -27,6 +27,8 @@ return {
 		lspconfig.cssls.setup({})
 
 		lspconfig.vale_ls.setup({})
+
+		lspconfig.dartls.setup({})
 
 		lspconfig.tailwindcss.setup({
 			autostart = false,

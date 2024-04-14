@@ -1,6 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-
+	-- commit = "33eb472b459f1d2bf49e16154726743ab3ca1c6d",
 	config = function()
 		local treesitter = require("nvim-treesitter.configs")
 
@@ -24,6 +24,7 @@ return {
 				"rust",
 				"scss",
 				"typescript",
+				"dart",
 				"toml",
 				"tsx",
 				"typst",
