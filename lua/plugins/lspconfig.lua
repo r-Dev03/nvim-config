@@ -12,11 +12,13 @@ return {
 
 		lspconfig.typst_lsp.setup({})
 
-		lspconfig.lua_ls.setup({})
-
 		lspconfig.clangd.setup({})
 
+		lspconfig.lua_ls.setup({})
+
 		lspconfig.pyright.setup({})
+
+		lspconfig.gopls.setup({})
 
 		lspconfig.eslint.setup({})
 
@@ -81,7 +83,7 @@ return {
 				-- For server specific setups, see `on_attach` for lspconfig
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 				vim.keymap.set("n", "gr", vim.lsp.buf.references)
-				vim.keymap.set("n", "gR", vim.lsp.buf.rename)
+				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 				vim.keymap.set("n", "K", vim.lsp.buf.hover)
 				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 			end,

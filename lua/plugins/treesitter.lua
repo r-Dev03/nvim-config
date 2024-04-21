@@ -10,6 +10,7 @@ return {
 				"angular",
 				"bash",
 				"c",
+				"go",
 				"cpp",
 				"css",
 				"html",
