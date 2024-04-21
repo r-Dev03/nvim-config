@@ -35,8 +35,17 @@ return {
 		})
 
 		lspconfig.matlab_ls.setup({
-			root_dir = vim.fn.getcwd,
-			settings = { MATLAB = { telemetry = false } },
+			root_dir = function(fname)
+				return vim.fn.getcwd()
+			end,
+			settings = {
+				MATLAB = {
+					indexWorkspace = false,
+					matlabConnectionTiming = "onStart",
+					installPath = "/Applications/MATLAB_R2023b.app/",
+					telemetry = false,
+				},
+			},
 		})
 
 		lspconfig.rust_analyzer.setup({
