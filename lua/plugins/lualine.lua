@@ -114,7 +114,7 @@ return {
 					lualine_x = {
 						{
 							"fileformat",
-							symbols = { unix = "", dos = "" },
+							symbols = { unix = "", dos = "" },
 						},
 						"filetype",
 					},
