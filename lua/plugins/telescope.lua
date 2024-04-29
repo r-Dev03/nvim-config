@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"debugloop/telescope-undo.nvim",
+		{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 	},
 
 	config = function()
@@ -32,9 +33,6 @@ return {
 					"%.xml",
 					"%.tmTheme",
 				},
-				-- Radium border settings
-				-- border = {},
-				-- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
 				path_display = { truncate = 2 },
 				prompt_prefix = "   ",
 				selection_caret = "  ",
@@ -57,23 +55,13 @@ return {
 			},
 		})
 		telescope.load_extension("undo")
+		telescope.load_extension("fzf")
 
-		--Radium telescope settings
-		-- vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "#161B20" })
-		-- vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "#161B20", fg = "#101317" })
-		-- vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = "#161B20" })
-		-- vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = "#161B20", fg = "#101317" })
-		-- vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = "#161B20" })
-		-- vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = "#161B20", fg = "#101317" })
-		-- vim.api.nvim_set_hl(0, "TelescopePromptCounter", { bg = "#161B20" })
-		-- vim.api.nvim_set_hl(0, "TelescopeSelection", { link = "Visual" })
-		--
-		-- See `:help telescope.builtin`
 		vim.keymap.set("n", "<leader>ff",
 			function ()
 				builtin.find_files{hidden = true} end,
 			{ desc = "[F]ind [F]iles" })
-		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[F]ind by [G]rep or words" })
+		vim.keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "[L]ive [G]rep" })
 		vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
 		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "[F]ind active [B]uffers" })
 		vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "[F]ind [U]ndo history" })
