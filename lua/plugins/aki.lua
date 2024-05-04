@@ -10,7 +10,6 @@ return {
 			contrast_light = "medium",
 			emphasis = {
 				general = { italic = true },
-				comment = {},
 				keyword = { italic = true },
 				type = { type = true },
 			},
@@ -19,6 +18,7 @@ return {
 				cursorline = { soft = true, contrast_currentline = false },
 				tabline = { reverse = true, color = "seiun" },
 				search = { reverse = false, color = "sakaeru" },
+				comment = { italic = true },
 			},
 			overrides = {},
 			plugins = true,
