@@ -1,4 +1,5 @@
 return {
+	priority = 50,
 	"stevearc/oil.nvim",
 	opts = {
 		columns = {

@@ -1,4 +1,5 @@
 return {
+	priority = 100,
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
