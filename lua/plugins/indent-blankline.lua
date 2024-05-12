@@ -1,8 +1,13 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
-	main = "ibl",
-	opts = {},
+	event = "BufAdd",
 	config = function()
-		require("ibl").setup()
+		require("ibl").setup({
+			scope = {
+				show_start = false,
+				show_end = false,
+			},
+		})
 	end,
+	main = "ibl",
 }

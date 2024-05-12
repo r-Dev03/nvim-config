@@ -1,5 +1,6 @@
 return { {
   'ThePrimeagen/harpoon',
+	priority = 52,
   config = function()
 
 		for pos = 0, 9 do

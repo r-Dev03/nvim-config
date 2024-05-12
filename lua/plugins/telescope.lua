@@ -1,11 +1,11 @@
 return {
-	priority = 100,
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"debugloop/telescope-undo.nvim",
-		{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
+	event = "VeryLazy",
 
 	config = function()
 		local telescope = require("telescope")
@@ -17,11 +17,9 @@ return {
 				file_ignore_patterns = {
 					"^node_modules/",
 					"^dist/",
+					"^assets/",
 					"^.git/",
 					"^.direnv/",
-					"^.sqlx/",
-					"^zsh/plugins/",
-					"^desktop/icons/",
 					"%.png",
 					"%.jpg",
 					"%.jpeg",
@@ -30,9 +28,6 @@ return {
 					"%.otf",
 					"%.lock",
 					"%-lock.json",
-					"%.wasm",
-					"%.xml",
-					"%.tmTheme",
 				},
 				path_display = { truncate = 2 },
 				prompt_prefix = "   ",
@@ -58,10 +53,9 @@ return {
 		telescope.load_extension("undo")
 		telescope.load_extension("fzf")
 
-		vim.keymap.set("n", "<leader>ff",
-			function ()
-				builtin.find_files{hidden = true} end,
-			{ desc = "[F]ind [F]iles" })
+		vim.keymap.set("n", "<leader>ff", function()
+			builtin.find_files({ hidden = true })
+		end, { desc = "[F]ind [F]iles" })
 		vim.keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "[L]ive [G]rep" })
 		vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
 		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "[F]ind active [B]uffers" })
