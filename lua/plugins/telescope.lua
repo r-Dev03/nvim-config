@@ -15,15 +15,13 @@ return {
 		telescope.setup({
 			defaults = {
 				vimgrep_arguments = {
-					"rg",
-					"-L",
-					"--color=never",
-					"--no-heading",
-					"--with-filename",
-					"--line-number",
-					"--column",
-					"--ignore-case",
-					"--hidden",
+					'rg',
+					'--with-filename',
+					'--no-heading',
+					'--line-number',
+					'--column',
+					'--ignore-case',
+					'--hidden',
 				},
 				file_ignore_patterns = {
 					"%node_modules/",
