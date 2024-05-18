@@ -1,10 +1,8 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	-- commit = "33eb472b459f1d2bf49e16154726743ab3ca1c6d",
 	config = function()
 		local treesitter = require("nvim-treesitter.configs")
 
-		-- See `:help nvim-treesitter-quickstart` or the repo's README
 		treesitter.setup({
 			ensure_installed = {
 				"angular",
@@ -49,7 +47,7 @@ return {
 			incremental_selection = {
 				enable = true,
 				keymaps = {
-					init_selection = "gnn", -- set to `false` to disable one of the mappings
+					init_selection = "gnn",
 					node_incremental = "grn",
 					scope_incremental = "grc",
 					node_decremental = "grm",
