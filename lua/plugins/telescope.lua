@@ -14,6 +14,7 @@ return {
 
 		telescope.setup({
 			defaults = {
+				dynamic_preview_title = true,
 				vimgrep_arguments = {
 					'rg',
 					'--with-filename',
@@ -27,6 +28,8 @@ return {
 					"%node_modules/",
 					"%dist/",
 					"%assets/",
+					"%ios/",
+					"%android/",
 					"%.git/",
 					"%.direnv/",
 					"%.png",
@@ -40,7 +43,7 @@ return {
 				},
 				path_display = { truncate = 2 },
 				prompt_prefix = "   ",
-				selection_caret = "  ",
+				selection_caret = "  ",
 				entry_prefix = "   ",
 				multi_icon = " ",
 				mappings = {
