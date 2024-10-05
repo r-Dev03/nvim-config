@@ -34,6 +34,19 @@ return {
 		vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "FloatBorder", { link = "Comment" })
 		vim.api.nvim_set_hl(0, "Visual", { cterm = none, ctermfg = none, ctermbg = 237, bg = "#454756" })
+		vim.api.nvim_set_hl(0, "@markup.heading.1.markdown", { link = "@text.title.1.markdown" })
+		vim.api.nvim_set_hl(0, "@markup.heading.1.marker.markdown", { link = "@text.title.1.markdown" })
+		vim.api.nvim_set_hl(0, "@markup.heading.2.markdown", { link = "@text.title.2.markdown" })
+		vim.api.nvim_set_hl(0, "@markup.heading.2.marker.markdown", { link = "@text.title.2.markdown" })
+		vim.api.nvim_set_hl(0, "@markup.heading.3.markdown", { link = "@text.title.3.markdown" })
+		vim.api.nvim_set_hl(0, "@markup.heading.3.marker.markdown", { link = "@text.title.3.markdown" })
+		vim.api.nvim_set_hl(0, "@markup.heading.4.markdown", { link = "@text.title.4.markdown" })
+		vim.api.nvim_set_hl(0, "@markup.heading.4.marker.markdown", { link = "@text.title.4.markdown" })
+		vim.api.nvim_set_hl(0, "@markup.heading.5.markdown", { link = "@text.title.5.markdown" })
+		vim.api.nvim_set_hl(0, "@markup.heading.5.marker.markdown", { link = "@text.title.5.markdown" })
+		vim.api.nvim_set_hl(0, "@markup.heading.6.markdown", { link = "@text.title.6.markdown" })
+		vim.api.nvim_set_hl(0, "@markup.heading.6.marker.markdown", { link = "@text.title.6.markdown" })
+
 
 		--Telescope Highlighting Overrides
 		vim.api.nvim_set_hl(0, "TelescopeNormal", { link = "Normal" })
