@@ -13,6 +13,11 @@ return {
 		local builtin = require("telescope.builtin")
 
 		telescope.setup({
+			extensions = {
+				undo = {
+					use_delta = false,
+				},
+			},
 			defaults = {
 				dynamic_preview_title = true,
 				vimgrep_arguments = {
