@@ -7,7 +7,7 @@ return {
 
 		lspconfig.tsserver.setup({})
 
-		lspconfig.rnix.setup({})
+		lspconfig.nixd.setup({})
 
 		lspconfig.typst_lsp.setup({})
 
