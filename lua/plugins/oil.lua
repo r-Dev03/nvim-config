@@ -12,7 +12,6 @@ return {
 			show_hidden = true,
 			-- natural_order = true,
 		},
-
 	},
 	config = function()
 		require("oil").setup({
@@ -20,6 +19,7 @@ return {
 				["<C-h>"] = false,
 				["<C-l>"] = false,
 				["H"] = "actions.toggle_hidden",
+				["q"] = "actions.close",
 			},
 		})
 		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
