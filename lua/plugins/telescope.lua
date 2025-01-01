@@ -27,7 +27,7 @@ return {
 					'--line-number',
 					'--column',
 					'--ignore-case',
-					'--hidden',
+					-- '--hidden',
 				},
 				file_ignore_patterns = {
 					"node_modules",
