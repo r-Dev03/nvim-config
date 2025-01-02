@@ -61,7 +61,7 @@ return {
 			builtin.find_files({ hidden = true })
 		end, { desc = "[F]ind [F]iles" })
 		vim.keymap.set("n", "<leader>fl", builtin.live_grep, { desc = "[F]ind by [L]ive grep" })
-		vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
+		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Search [G]it [F]iles" })
 		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "[F]ind active [B]uffers" })
 		vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "[F]ind [U]ndo history" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind help tags" })
