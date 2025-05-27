@@ -20,7 +20,7 @@ return {
 		local kind_icons = {
 			Text = "󰉿",
 			Method = "󰆧",
-			Function = "",
+			Function = "󰡱",
 			Constructor = "",
 			Field = "󰇽",
 			Variable = "󰫧",
