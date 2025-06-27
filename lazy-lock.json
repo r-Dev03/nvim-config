@@ -1,5 +1,5 @@
 {
-  "aki": { "branch": "mega", "commit": "53c72e1c30f13646515314da96f098e0dfc150a1" },
+  "aki": { "branch": "mega", "commit": "a39e802855c2715811cca9c855e43252ee7a96ee" },
   "barbecue.nvim": { "branch": "main", "commit": "3e31404f0b93a2c30d151abf0648650ac811c664" },
   "conform.nvim": { "branch": "master", "commit": "8132ec733eed3bf415b97b76797ca41b59f51d7d" },
   "gitsigns.nvim": { "branch": "main", "commit": "1b0350ab707713b2bc6c236151f1a324175347b1" },

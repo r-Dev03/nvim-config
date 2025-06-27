@@ -34,6 +34,7 @@ return {
 		vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
 		vim.api.nvim_set_hl(0, "FloatBorder", { link = "Comment" })
 		vim.api.nvim_set_hl(0, "Visual", { cterm = none, ctermfg = none, ctermbg = 237, bg = "#454756" })
+		vim.api.nvim_set_hl(0, "@field", { fg = "#797EA3" })
 		vim.api.nvim_set_hl(0, "@markup.heading.1.markdown", { link = "@text.title.1.markdown" })
 		vim.api.nvim_set_hl(0, "@markup.heading.1.marker.markdown", { link = "@text.title.1.markdown" })
 		vim.api.nvim_set_hl(0, "@markup.heading.2.markdown", { link = "@text.title.2.markdown" })
