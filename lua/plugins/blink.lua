@@ -22,6 +22,11 @@ return {
             },
         },
 
+				cmdline = {
+					keymap = { preset = 'inherit' },
+					completion = { menu = { auto_show = false } },
+				},
+
         completion = {
             list = {
                 selection = {
@@ -38,19 +43,21 @@ return {
                 winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
             },
             documentation = {
+							auto_show = true;
+							auto_show_delay_ms = 0;
                 window = {
                     border = "rounded",
                     winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
                 },
             },
             ghost_text = {
-                enabled = true,
+              enabled = false,
             },
         },
-        signature = {
-            enabled = true,
-            window = {
-                border = "rounded",
+        		signature = {
+           	 enabled = true,
+            	window = {
+              	border = "rounded",
                 winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
             },
         },

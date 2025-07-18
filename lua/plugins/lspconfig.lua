@@ -1,33 +1,58 @@
 return {
 	"neovim/nvim-lspconfig",
+	dependencies = { "saghen/blink.cmp" },
 	config = function()
 		local lspconfig = require("lspconfig")
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		local win = require("lspconfig.ui.windows")
 		win.default_options.border = "rounded"
 
-		lspconfig.ts_ls.setup({})
+		lspconfig.ts_ls.setup({
+			capabilities = capabilities,
+		})
 
-		lspconfig.nixd.setup({})
+		lspconfig.nixd.setup({
+			capabilities = capabilities,
+		})
 
-		lspconfig.clangd.setup({})
+		lspconfig.clangd.setup({
+			capabilities = capabilities,
+		})
 
-		lspconfig.lua_ls.setup({})
+		lspconfig.lua_ls.setup({
+			capabilities = capabilities,
+		})
 
-		lspconfig.pyright.setup({})
+		lspconfig.pyright.setup({
+			capabilities = capabilities,
+		})
 
-		lspconfig.gopls.setup({})
+		lspconfig.gopls.setup({
+			capabilities = capabilities,
+		})
 
-		lspconfig.eslint.setup({})
+		lspconfig.eslint.setup({
+			capabilities = capabilities,
+		})
 
-		lspconfig.jdtls.setup({})
+		lspconfig.jdtls.setup({
+			capabilities = capabilities,
+		})
 
-		lspconfig.html.setup({})
+		lspconfig.html.setup({
+			capabilities = capabilities,
+		})
 
-		lspconfig.cssls.setup({})
+		lspconfig.cssls.setup({
+			capabilities = capabilities,
+		})
 
-		lspconfig.vale_ls.setup({})
+		lspconfig.vale_ls.setup({
+			capabilities = capabilities,
+		})
 
 		lspconfig.tailwindcss.setup({
+			capabilities = capabilities,
 			autostart = false,
 		})
 
@@ -36,12 +61,7 @@ return {
 				return vim.fn.getcwd()
 			end,
 			settings = {
-				MATLAB = {
-					indexWorkspace = false,
-					matlabConnectionTiming = "onStart",
-					installPath = "/Applications/MATLAB_R2023b.app/",
-					telemetry = false,
-				},
+				capabilities = capabilities,
 			},
 		})
 

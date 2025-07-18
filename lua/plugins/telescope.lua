@@ -2,7 +2,6 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"debugloop/telescope-undo.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	event = "VeryLazy",
@@ -13,11 +12,7 @@ return {
 		local builtin = require("telescope.builtin")
 
 		telescope.setup({
-			extensions = {
-				undo = {
-					use_delta = false,
-				},
-			},
+			extensions = {},
 			defaults = {
 				dynamic_preview_title = true,
 				vimgrep_arguments = {
@@ -54,7 +49,6 @@ return {
 				},
 			},
 		})
-		telescope.load_extension("undo")
 		telescope.load_extension("fzf")
 
 		vim.keymap.set("n", "<leader>ff", function()
@@ -63,7 +57,6 @@ return {
 		vim.keymap.set("n", "<leader>fl", builtin.live_grep, { desc = "[F]ind by [L]ive grep" })
 		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Search [G]it [F]iles" })
 		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "[F]ind active [B]uffers" })
-		vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "[F]ind [U]ndo history" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind help tags" })
 		vim.keymap.set("n", "<leader>fd", ":Telescope find_files find_command=find,-type,d,!,-name,'node_modules'<cr>", { desc = "[F]ind [D]irectories" })
 		vim.keymap.set("n", "<leader>fi", ":Telescope highlights <CR>", { desc = "[F]ind highl[I]ghts" })
