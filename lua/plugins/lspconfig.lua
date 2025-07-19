@@ -4,8 +4,7 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
-		local win = require("lspconfig.ui.windows")
-		win.default_options.border = "rounded"
+		vim.o.winborder = 'rounded'
 
 		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
