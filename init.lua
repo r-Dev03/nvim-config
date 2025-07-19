@@ -1,6 +1,9 @@
 -- Load `./lua/core/options.lua`
 require("core.options")
 
+-- Load `./lua/core/lsp.lua`
+require("core.lsp")
+
 -- Load `./lua/keymaps/keymaps.lua`
 require("keymaps.keymaps")
 

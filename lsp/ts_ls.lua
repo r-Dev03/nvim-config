@@ -1,0 +1,20 @@
+---@type vim.lsp.Config
+return {
+	cmd = { "typescript-language-server", "--stdio" },
+	init_options = {},
+	filetypes = {
+		"javascript",
+		"javascriptreact",
+		"javascript.jsx",
+		"typescript",
+		"typescriptreact",
+		"typescript.tsx",
+	},
+	root_markers = {
+		"tsconfig.json",
+		"jsconfig.json",
+		"package.json",
+		".git",
+	},
+	single_file_support = true,
+}
