@@ -85,18 +85,17 @@ return {
 					border = "rounded",
 					title = "hover",
 				})
+
+				-- add this inside your LspAttach autocommand callback:
+				vim.keymap.set('n', 'K', function() vim.lsp.buf.hover { border = 'rounded', title = ' hover ' } end, {
+					desc = 'Hover Documentation',
+					buffer = event.buf,
+				})
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 				vim.keymap.set("n", "gr", vim.lsp.buf.references)
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 				-- vim.keymap.set("n", "K", vim.lsp.buf.hover)
 				-- Work around for now
-				vim.keymap.set(
-					'n', 'K',
-					function()
-						vim.lsp.buf.hover({border = "rounded", title = " hover "})
-					end,
-					{desc = 'Hover Documentation'}
-				)
 				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 			end,
 		})
