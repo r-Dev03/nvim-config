@@ -4,7 +4,6 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
-		vim.o.winborder = 'rounded'
 
 		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
@@ -89,7 +88,15 @@ return {
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 				vim.keymap.set("n", "gr", vim.lsp.buf.references)
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-				vim.keymap.set("n", "K", vim.lsp.buf.hover)
+				-- vim.keymap.set("n", "K", vim.lsp.buf.hover)
+				-- Work around for now
+				vim.keymap.set(
+					'n', 'K',
+					function()
+						vim.lsp.buf.hover({border = "rounded", title = " hover "})
+					end,
+					{desc = 'Hover Documentation'}
+				)
 				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 			end,
 		})
