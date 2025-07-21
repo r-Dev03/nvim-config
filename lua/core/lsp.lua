@@ -17,33 +17,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			border = "rounded",
 			title = "hover",
 		})
+
+		-- Keymaps
+		vim.keymap.set('n', 'K', function() vim.lsp.buf.hover { border = 'rounded', title = ' hover ' } end, {
+			desc = 'Hover Documentation',
+			buffer = event.buf,
+		})
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 		vim.keymap.set("n", "gr", vim.lsp.buf.references)
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-		vim.keymap.set("n", "K", vim.lsp.buf.hover)
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
-
-		vim.keymap.set('n', '<leader>k', function()
-			vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
-
-			vim.api.nvim_create_autocmd('CursorMoved', {
-				group = vim.api.nvim_create_augroup('line-diagnostics', { clear = true }),
-				callback = function()
-					vim.diagnostic.config({ virtual_lines = false})
-					return true
-				end,
-			})
-		end)
+		vim.keymap.set("n", "<leader>k", function() vim.diagnostic.open_float() end)
 	end,
 })
 
 -- Diagnostics
-vim.diagnostic.config({
-	virtual_lines = false
-
-	-- Alternatively, customize specific options
-	-- virtual_lines = {
-		-- Only show virtual line diagnostics for the current cursor line
-	-- 	current_line = true,
-	-- },
-})
+  vim.diagnostic.config {
+    signs = true,
+    underline = true,
+    virtual_text = false,
+    virtual_lines = false,
+    update_in_insert = true,
+    float = {
+      -- UI.
+      header = false,
+      border = 'rounded',
+      focusable = true,
+	},
+}

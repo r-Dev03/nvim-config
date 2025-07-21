@@ -24,10 +24,6 @@ vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.cmdheight = 0
 
-
---Rounded borders
-vim.opt.winborder = 'rounded'
-
 -- vim.opt.wildoptions = { "fuzzy", "pum" }
 
 vim.filetype.add({
