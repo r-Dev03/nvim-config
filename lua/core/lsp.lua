@@ -28,19 +28,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gr", vim.lsp.buf.references)
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
-		vim.keymap.set("n", "<leader>k", function() vim.diagnostic.open_float() end)
+		vim.keymap.set("n", "<leader>od", function() vim.diagnostic.open_float() end)
 	end,
 })
 
 -- Diagnostics
   vim.diagnostic.config {
-    signs = true,
+    signs = false,
     underline = true,
     virtual_text = false,
     virtual_lines = false,
-    update_in_insert = true,
     float = {
-      -- UI.
       header = false,
       border = 'rounded',
       focusable = true,
