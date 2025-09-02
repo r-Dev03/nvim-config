@@ -34,13 +34,38 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Diagnostics
   vim.diagnostic.config {
-    signs = false,
-    underline = true,
+    underline = false,
     virtual_text = false,
     virtual_lines = false,
+		severity_sort = true,
+		signs = {
+
+			text = {
+		 	 [vim.diagnostic.severity.ERROR] = "",
+		 	 [vim.diagnostic.severity.WARN] = "",
+		 	 [vim.diagnostic.severity.HINT] = "",
+		 	 [vim.diagnostic.severity.INFO] = "",
+			},
+
+			linehl = {
+			 [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+		 	 [vim.diagnostic.severity.WARN] = "None",
+		 	 [vim.diagnostic.severity.HINT] = "None",
+		 	 [vim.diagnostic.severity.INFO] = "None",
+			},
+
+			numhl = {
+		 	 [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+		 	 [vim.diagnostic.severity.WARN] = "WarningMsg",
+		 	 [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+		 	 [vim.diagnostic.severity.INFO] = "DiagnosticHint",
+			},
+		},
+
     float = {
-      header = false,
-      border = 'rounded',
-      focusable = true,
+			title = " Diagnostic ",
+			header = "",
+			border = "single",
+			scope = "line",
 	},
 }
