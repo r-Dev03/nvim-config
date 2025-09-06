@@ -67,7 +67,7 @@ return
   on_highlights = function(highlights, colors) end,
 
   -- Override colors
-  colors = {
+		colors = {
     bg = "#101317",
     inactiveBg = "#1c1c24",
     fg = "#D1CEC9",
@@ -75,12 +75,12 @@ return
     line = "#252530",
     comment = "#505164",
     builtin = "#797EA3",
-    func = "#c48282",
+    func = "#bb9dbd",
     string = "#B4C7A7",
     number = "#c0ad87",
     property = "#c3c3d5",
     constant = "#aeaed1",
-    parameter = "#bb9dbd",
+    parameter = "#b48484",
     visual = "#2a2b30",
     error = "#CA6D73",
     warning = "#E6C193",
