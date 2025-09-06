@@ -77,7 +77,7 @@ return
     builtin = "#797EA3",
     func = "#bb9dbd",
     string = "#92ac8a",
-    number = "#c0ad87",
+    number = "#a8915b",
     property = "#c3c3d5",
     constant = "#aeaed1",
     parameter = "#b48484",
