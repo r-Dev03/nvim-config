@@ -76,7 +76,7 @@ return
     comment = "#505164",
     builtin = "#797EA3",
     func = "#bb9dbd",
-    string = "#B4C7A7",
+    string = "#92ac8a",
     number = "#c0ad87",
     property = "#c3c3d5",
     constant = "#aeaed1",
