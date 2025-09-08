@@ -80,7 +80,7 @@ return {
 				property = "#c3c3d5",
 				constant = "#8f8fb4",
 				parameter = "#b48484",
-				visual = "#2a2b30",
+				visual = "#454756",
 				error = "#CA6D73",
 				warning = "#E6C193",
 				hint = "#99A3C2",
