@@ -65,6 +65,7 @@ return {
 			-- Override highlights or add new highlights
 			on_highlights = function(highlights, colors) end,
 
+
 			-- Override colors
 			colors = {
 				bg = "#101317",
@@ -81,23 +82,22 @@ return {
 				constant = "#8f8fb4",
 				parameter = "#b48484",
 				visual = "#454756",
-				error = "#CA6D73",
-				warning = "#E6C193",
+				error = "#b48484",
+				warning = "#C3AD8B",
 				hint = "#99A3C2",
 				operator = "#90a0b5",
 				keyword = "#797ea3",
 				type = "#9bb4bc",
-				search = "#334156",
+				search = "#615D7D",
 				plus = "#B4C7A7",
-				delta = "#E6C193",
+				delta = "#C3AD8B",
 			},
 		})
 		vim.cmd("colorscheme vague")
-		-- vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#99A3C2", bg = "NONE", bold = true })
+		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#99A3C2", bg = "NONE", bold = true })
 		vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#101317", fg = "#D1CEC9" })
 		vim.api.nvim_set_hl(0, "Visual", { bg = "#454756" })
 		vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#454756", fg = "#D1CEC9" })
-		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#797EA3", bg = "NONE", bold = false })  -- or "#99A3C2" for softer match
-
+		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#797EA3", bg = "NONE", bold = false }) -- or "#99A3C2" for softer match
 	end,
 }
