@@ -82,7 +82,7 @@ return {
 				constant = "#8f8fb4",
 				parameter = "#b48484",
 				visual = "#454756",
-				error = "#b86b5d",
+				error = "#b48484",
 				warning = "#C3AD8B",
 				hint = "#99A3C2",
 				operator = "#90a0b5",
