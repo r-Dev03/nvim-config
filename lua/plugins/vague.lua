@@ -98,6 +98,6 @@ return {
 		vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#101317", fg = "#D1CEC9" })
 		vim.api.nvim_set_hl(0, "Visual", { bg = "#454756" })
 		vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#454756", fg = "#D1CEC9" })
-		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#797EA3", bg = "NONE", bold = false }) -- or "#99A3C2" for softer match
+		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#ad8dbd", bg = "NONE", bold = false }) -- or "#99A3C2" for softer match
 	end,
 }
