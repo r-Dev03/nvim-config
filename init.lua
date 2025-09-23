@@ -1,3 +1,5 @@
+-- Load `./lua/core/statusline.lua`
+require("core.statusline")
 -- Load `./lua/core/options.lua`
 require("core.options")
 
