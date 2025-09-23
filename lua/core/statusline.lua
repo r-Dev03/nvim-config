@@ -91,10 +91,10 @@ local function lsp()
     warnings = " %#LspDiagnosticsSignWarning# " .. count["warnings"]
   end
   if count["hints"] ~= 0 then
-    hints = " %#LspDiagnosticsSignHint# " .. count["hints"]
+    hints = " %#LspDiagnosticsSignHint# " .. count["hints"]
   end
   if count["info"] ~= 0 then
-    info = " %#LspDiagnosticsSignInformation# " .. count["info"]
+    info = " %#LspDiagnosticsSignInformation# " .. count["info"]
   end
 
   return errors .. warnings .. hints .. info .. "%#Normal#"
