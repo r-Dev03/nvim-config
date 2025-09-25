@@ -2,9 +2,10 @@
 vim.lsp.enable({
 	"clangd",
 	"lua_ls",
+	"nil_ls",
 	"rust_analyzer",
-	"ts_ls",
 	"sqls",
+	"ts_ls",
 })
 
 -- Semantic tokens removal
