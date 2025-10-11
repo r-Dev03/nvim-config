@@ -5,46 +5,45 @@ vim.bo.softtabstop = 2
 vim.cmd.compiler("javac")
 vim.bo.makeprg = "javac %:p"
 
--- Format options → See [ :h 'formatoptions' ]
-vim.opt.formatoptions = vim.opt.formatoptions
-  - "t" -- No autoformatting based on `textwidth`
-  - "a" -- No autoformatting, AGAIN.
-  - "o" -- o / O do not continue comments if launched from within them.
-  - "2" -- Not in gradeschool ;)
-  + "r" -- But Enter in Insertmode does.
-  + "n" -- Do recognize numbered lists.
-  + "c" -- But I do like when comments respect textwidth :D
-  + "j" -- Autoremove comments if possible.
+local jdtls = require('jdtls')
 
-local home = os.getenv("HOME")
-local capabilities = require("plugins.lspconfig").capabilities
+-- 1) Resolve project root via common Java markers
+local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
+local root_dir = require('jdtls.setup').find_root(root_markers)
+if root_dir == "" then
+  return
+end
 
-local config = {
+local jdtls_bin = vim.fn.exepath("jdtls")
+local workspace_dir = vim.fn.stdpath("data") ..
+  "/jdtls-workspace/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+
+
+local caps = vim.lsp.protocol.make_client_capabilities()
+caps.textDocument.completion.completionItem.snippetSupport = true
+require('jdtls').start_or_attach({
+  cmd = { 'jdtls', '-data', workspace_dir },
+  root_dir = root_dir,
+  capabilities = caps,
+})
+
+
+-- 4) Start or attach
+jdtls.start_or_attach({
+  cmd = { jdtls_bin, "-data", workspace_dir },
+  root_dir = root_dir,
   capabilities = capabilities,
-  cmd = { home .. "/.nix-profile/bin/jdtls" },
-  root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
   settings = {
     java = {
-      configuration = { updateBuildConfiguration = "interactive" },
       eclipse = { downloadSources = true },
       maven = { downloadSources = true },
+      configuration = { updateBuildConfiguration = "interactive" },
+      signatureHelp = { enabled = true },
       implementationsCodeLens = { enabled = true },
       referencesCodeLens = { enabled = true },
-      inlayHints = {
-        parameterNames = {
-          enabled = "all", -- literals, all, none
-        },
-      },
-      format = { enabled = false },
-      signatureHelp = { enabled = true },
     },
   },
-  init_options = {
-    bundles = {
-      ---@diagnostic disable-next-line: param-type-mismatch
-      -- vim.fn.glob(home .. "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", 0),
-    },
-  },
-}
+  init_options = { bundles = {} }, -- fill for debug/test if desired
+})
 
-require("jdtls").start_or_attach(config)
+
