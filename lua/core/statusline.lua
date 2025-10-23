@@ -152,13 +152,12 @@ Statusline.active = function()
     update_mode_colors(),
     mode(),
     "%#Normal# ",
-    filepath(),
-    filename(),
     "%#Normal#",
     lsp(),
 		vcs(),
     "%=%#StatusLineExtra#",
-    filetype(),
+    filepath(),
+    filename(),
   }
 end
 

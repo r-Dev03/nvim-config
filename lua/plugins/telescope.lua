@@ -14,9 +14,14 @@ return {
 		telescope.setup({
 			defaults = {
 				dynamic_preview_title = true,
-				path_display = { truncate = 2 },
+				path_display = { "filename_first" },
 				layout_config = {
-					horizontal = { width = 0.9, preview_width = 0.7 },
+					width  = { padding = 0 },
+					height = { padding = 0 },
+					horizontal = {
+						preview_width = 0.65,  
+						preview_cutoff = 120,  
+					},
 				},
 				prompt_prefix = "   ",
 				selection_caret = "󱞩 ",
