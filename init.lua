@@ -2,13 +2,10 @@
 require("core.statusline")
 -- Load `./lua/core/options.lua`
 require("core.options")
-
 -- Load `./lua/core/lsp.lua`
 require("core.lsp")
-
--- Load `./lua/keymaps/keymaps.lua`
-require("keymaps.keymaps")
-
+-- Load `./lua/core/keymaps.lua`
+require("core.keymaps")
 -- Load `./lua/utils/auto_commands.lua`
 require("utils.auto_commands")
 
