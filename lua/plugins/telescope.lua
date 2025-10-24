@@ -66,6 +66,8 @@ return {
 						"--exclude=*.lock",
 						"--exclude=target",
 						"--exclude=build",
+						"-t",
+						"f",
 					},
 				},
 			},
