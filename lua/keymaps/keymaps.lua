@@ -37,3 +37,10 @@ vim.keymap.set("n", "<leader>qo", ":copen<cr>", { desc = "Open quickfix list" })
 vim.keymap.set("n", "<leader>qc", ":cclose<cr>", { desc = "Close quickfix list" })
 vim.keymap.set("n", "<leader>qn", ":cn<cr>", { desc = "Next quickfix item" })
 vim.keymap.set("n", "<leader>qp", ":cp<cr>", { desc = "Prev quickfix item" })
+
+
+
+vim.keymap.set('c', '<c-h>', '<left>')
+vim.keymap.set('c', '<c-j>', '<down>')
+vim.keymap.set('c', '<c-k>', '<up>')
+vim.keymap.set('c', '<c-l>', '<right>')
