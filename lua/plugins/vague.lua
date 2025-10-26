@@ -63,8 +63,13 @@ return {
 			},
 
 			-- Override highlights or add new highlights
-			on_highlights = function(highlights, colors) end,
-
+			on_highlights = function(hl, colors)
+				hl.TelescopeMatching = { fg = colors.number, bg = "NONE", bold = true }
+				hl.TelescopeSelection = { fg = colors.fg, bg = colors.bg }
+				hl.Visual = { bg = colors.visual }
+				hl.PmenuSel = { bg = colors.visual, fg = colors.fg }
+				hl.StatuslineAccent = { fg = colors.floatBorder, bg = colors.bg, bold = true } -- Normal mode
+			end,
 
 			-- Override colors
 			colors = {
@@ -94,10 +99,5 @@ return {
 			},
 		})
 		vim.cmd("colorscheme vague")
-		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#99A3C2", bg = "NONE", bold = true })
-		vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#101317", fg = "#D1CEC9" })
-		vim.api.nvim_set_hl(0, "Visual", { bg = "#454756" })
-		vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#454756", fg = "#D1CEC9" })
-		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#ad8dbd", bg = "NONE", bold = false }) -- or "#99A3C2" for softer match
 	end,
 }
