@@ -2,7 +2,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 -- `Space + e` will open netrw.
-vim.keymap.set("n", "<Leader>e", vim.cmd.Ex)
 vim.keymap.set("i", "<C-BS>", "<Esc>cvb", {})
 
 -- Moving a block of code using C/V in visual mode with movement keys
