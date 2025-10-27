@@ -22,8 +22,7 @@ vim.opt.splitbelow = true
 vim.opt.virtualedit = "block"
 vim.opt.termguicolors = true
 vim.opt.undofile = true
-vim.opt.cmdheight = 0
-vim.opt.clipboard = "unnamedplus"
+vim.opt.cmdheight = 1
 vim.opt.spelllang = { "en" } 
 
 
