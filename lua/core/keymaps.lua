@@ -1,8 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
--- `Space + e` will open netrw.
-vim.keymap.set("i", "<C-BS>", "<Esc>cvb", {})
+vim.keymap.set('n', ' ', '<nop')
 
 -- Moving a block of code using C/V in visual mode with movement keys
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -38,10 +37,9 @@ vim.keymap.set("n", "<leader>qn", ":cn<cr>", { desc = "Next quickfix item" })
 vim.keymap.set("n", "<leader>qp", ":cp<cr>", { desc = "Prev quickfix item" })
 
 
-
-vim.keymap.set('c', '<c-h>', '<left>')
-vim.keymap.set('c', '<c-j>', '<down>')
-vim.keymap.set('c', '<c-k>', '<up>')
-vim.keymap.set('c', '<c-l>', '<right>')
-
+-- Better cmd line movement
+vim.keymap.set('c', '<C-h>', '<left>')
+vim.keymap.set('c', '<C-j>', '<down>')
+vim.keymap.set('c', '<C-k>', '<up>')
+vim.keymap.set('c', '<C-l>', '<right>')
 
