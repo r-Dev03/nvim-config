@@ -43,3 +43,7 @@ vim.keymap.set('c', '<C-j>', '<down>')
 vim.keymap.set('c', '<C-k>', '<up>')
 vim.keymap.set('c', '<C-l>', '<right>')
 
+vim.keymap.set('t', '<Esc><Esc>', [[<C-\><C-n>]], { desc = 'Exit terminal mode' })
+
+
+

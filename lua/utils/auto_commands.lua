@@ -9,4 +9,11 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   desc = "Highlighting matched words when searching",
 })
 
--- vim.api.nvim_create_user_command("Grep", "silent grep! <args> | copen | redraw!", { nargs = "+" })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+		vim.opt.number = false
+		vim.opt.relativenumber = false
+    vim.cmd("startinsert")
+  end,
+})
