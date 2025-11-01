@@ -18,21 +18,25 @@ local jdtls_bin = vim.fn.exepath("jdtls")
 local workspace_dir = vim.fn.stdpath("data") ..
   "/jdtls-workspace/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
+local lombok_path = vim.fn.glob(root_dir .. "/target/dependency/lombok*.jar")
+local cmd = { "jdtls" }
+
+if vim.fn.filereadable(lombok_path) == 1 then
+  table.insert(cmd, "--jvm-arg=-javaagent:" .. lombok_path)
+else
+  vim.notify("⚠️ Lombok JAR not found in target/dependency, skipping javaagent", vim.log.levels.WARN)
+end
+
+table.insert(cmd, "-data")
+table.insert(cmd, workspace_dir)
 
 local caps = vim.lsp.protocol.make_client_capabilities()
 caps.textDocument.completion.completionItem.snippetSupport = true
-require('jdtls').start_or_attach({
-  cmd = { 'jdtls', '-data', workspace_dir },
+
+jdtls.start_or_attach({
+  cmd = cmd,
   root_dir = root_dir,
   capabilities = caps,
-})
-
-
--- 4) Start or attach
-jdtls.start_or_attach({
-  cmd = { jdtls_bin, "-data", workspace_dir },
-  root_dir = root_dir,
-  capabilities = capabilities,
   settings = {
     java = {
       eclipse = { downloadSources = true },
@@ -43,7 +47,6 @@ jdtls.start_or_attach({
       referencesCodeLens = { enabled = true },
     },
   },
-  init_options = { bundles = {} }, -- fill for debug/test if desired
+  init_options = { bundles = {} },
 })
-
 
