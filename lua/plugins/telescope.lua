@@ -16,11 +16,11 @@ return {
 				dynamic_preview_title = true,
 				path_display = { "filename_first" },
 				layout_config = {
-					width  = { padding = 0 },
+					width = { padding = 0 },
 					height = { padding = 0 },
 					horizontal = {
-						preview_width = 0.65,  
-						preview_cutoff = 120,  
+						preview_width = 0.65,
+						preview_cutoff = 120,
 					},
 				},
 				prompt_prefix = "   ",
@@ -59,15 +59,44 @@ return {
 			pickers = {
 				find_files = {
 					prompt_title = "Find Files",
+					previewer = false,
+					layout_strategy = "center",
+					layout_config = {
+						width = 0.55,
+						height = 0.60,
+					},
+					borderchars = {
+						prompt = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+						results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+					},
+					results_title = false,
+					sorting_strategy = "ascending",
+					path_display = { "filename_first" },
 					find_command = {
 						"fd",
 						"--hidden",
-						"--exclude=.sqlx",
-						"--exclude=*.lock",
-						"--exclude=target",
-						"--exclude=build",
-						"-t",
+						"--type",
 						"f",
+						"--exclude",
+						".git",
+						"--exclude",
+						"node_modules",
+						"--exclude",
+						"target",
+						"--exclude",
+						"build",
+						"--exclude",
+						".direnv",
+					},
+				},
+
+				buffers = {
+					sort_lastused = true,
+					sort_mru = true,
+					mappings = {
+						i = {
+							["<C-d>"] = actions.delete_buffer + actions.move_to_top, -- delete + stay in picker
+						},
 					},
 				},
 			},
@@ -80,6 +109,11 @@ return {
 		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "[F]ind active [B]uffers" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind help tags" })
 		vim.keymap.set("n", "<leader>fi", ":Telescope highlights <CR>", { desc = "[F]ind highl[I]ghts" })
-		vim.keymap.set("n", "<leader>f/", builtin.current_buffer_fuzzy_find, { desc = "[/] Fuzzily [F]ind in current buffer" })
+		vim.keymap.set(
+			"n",
+			"<leader>f/",
+			builtin.current_buffer_fuzzy_find,
+			{ desc = "[/] Fuzzily [F]ind in current buffer" }
+		)
 	end,
 }
