@@ -9,36 +9,50 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+		local themes = require("telescope.themes")
 		local builtin = require("telescope.builtin")
 
+		-- Reusable fullscreen Ivy layout
+		local ivy = function(options)
+			local defaults = themes.get_ivy({
+				layout_strategy = "vertical",
+				layout_config = {
+					height = vim.o.lines,
+					width = vim.o.columns,
+					preview_height = 0.75,
+					prompt_position = "top",
+					anchor = "C",
+				},
+				results_title = false,
+				preview_title = false,
+				borderchars = {
+					prompt = { "─", " ", " ", " ", " ", " ", " ", " " },
+					results = { " ", " ", " ", " ", " ", " ", " ", " " },
+					preview = { " ", " ", " ", " ", " ", " ", " ", " " },
+				},
+			})
+			return vim.tbl_deep_extend("force", defaults, options or {})
+		end
+
+		-- Global setup
 		telescope.setup({
-			defaults = {
+			defaults = ivy({
 				dynamic_preview_title = true,
 				path_display = { "filename_first" },
-				layout_config = {
-					width = { padding = 0 },
-					height = { padding = 0 },
-					horizontal = {
-						preview_width = 0.65,
-						preview_cutoff = 120,
-					},
-				},
 				prompt_prefix = "   ",
 				selection_caret = "󱞩 ",
 				entry_prefix = "   ",
 				multi_icon = " ",
 				mappings = {
-					n = {
-						q = actions.close,
-					},
+					n = { q = actions.close },
 					i = {
 						["<Esc>"] = actions.close,
 						["<C-j>"] = actions.move_selection_next,
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-s>"] = actions.file_vsplit,
+						["<C-d>"] = actions.delete_buffer + actions.move_to_top,
 					},
 				},
-
 				vimgrep_arguments = {
 					"rg",
 					"--with-filename",
@@ -47,73 +61,49 @@ return {
 					"--column",
 					"--ignore-case",
 				},
-
 				file_ignore_patterns = {
 					"node_modules",
 					"%.direnv/",
 					"%.git/",
 					".*%.lock/",
 				},
-			},
+			}),
 
 			pickers = {
 				find_files = {
-					prompt_title = "Find Files",
-					previewer = false,
-					layout_strategy = "center",
-					layout_config = {
-						width = 0.55,
-						height = 0.60,
-					},
-					borderchars = {
-						prompt = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-						results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-					},
-					results_title = false,
-					sorting_strategy = "ascending",
-					path_display = { "filename_first" },
 					find_command = {
 						"fd",
 						"--hidden",
-						"--type",
+						"--exclude=.sqlx",
+						"--exclude=*.lock",
+						"--exclude=target",
+						"--exclude=build",
+						"-t",
 						"f",
-						"--exclude",
-						".git",
-						"--exclude",
-						"node_modules",
-						"--exclude",
-						"target",
-						"--exclude",
-						"build",
-						"--exclude",
-						".direnv",
 					},
 				},
 
 				buffers = {
 					sort_lastused = true,
-					sort_mru = true,
+					ignore_current_buffer = true,
 					mappings = {
-						i = {
-							["<C-d>"] = actions.delete_buffer + actions.move_to_top, -- delete + stay in picker
-						},
+						i = { ["<C-d>"] = actions.delete_buffer + actions.move_to_top,},
+						n = { ["<C-d>"] = actions.delete_buffer },
 					},
 				},
 			},
 		})
+
 		telescope.load_extension("fzf")
 
+		-- Keymaps
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
 		vim.keymap.set("n", "<leader>fl", builtin.live_grep, { desc = "[F]ind by [L]ive grep" })
 		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Search [G]it [F]iles" })
-		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "[F]ind active [B]uffers" })
+		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[F]ind active [B]uffers" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind help tags" })
-		vim.keymap.set("n", "<leader>fi", ":Telescope highlights <CR>", { desc = "[F]ind highl[I]ghts" })
-		vim.keymap.set(
-			"n",
-			"<leader>f/",
-			builtin.current_buffer_fuzzy_find,
-			{ desc = "[/] Fuzzily [F]ind in current buffer" }
-		)
+		vim.keymap.set("n", "<leader>fi", builtin.highlights, { desc = "[F]ind highl[I]ghts" })
+		vim.keymap.set("n", "<leader>f/", builtin.current_buffer_fuzzy_find, { desc = "[/] Fuzzily [F]ind in buffer" })
 	end,
 }
+
