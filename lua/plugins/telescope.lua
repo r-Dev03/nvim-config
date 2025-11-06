@@ -11,15 +11,17 @@ return {
 		local actions = require("telescope.actions")
 		local themes = require("telescope.themes")
 		local builtin = require("telescope.builtin")
+		local multigrep = require("utils.multigrep")
 
 		-- Reusable fullscreen Ivy layout
 		local ivy = function(options)
 			local defaults = themes.get_ivy({
 				layout_strategy = "vertical",
+				treesitter = true,
 				layout_config = {
 					height = vim.o.lines,
 					width = vim.o.columns,
-					preview_height = 0.75,
+					preview_height = 0.70,
 					prompt_position = "top",
 					anchor = "C",
 				},
@@ -50,20 +52,22 @@ return {
 						["<C-j>"] = actions.move_selection_next,
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-s>"] = actions.file_vsplit,
-						["<C-d>"] = actions.delete_buffer + actions.move_to_top,
 					},
 				},
 				vimgrep_arguments = {
 					"rg",
-					"--with-filename",
+					"--color=never",
 					"--no-heading",
+					"--with-filename",
 					"--line-number",
 					"--column",
-					"--ignore-case",
+					"--smart-case",
+					"--hidden",
+					-- "--fixed-strings",
 				},
+
 				file_ignore_patterns = {
 					"node_modules",
-					"%.direnv/",
 					"%.git/",
 					".*%.lock/",
 				},
@@ -74,10 +78,8 @@ return {
 					find_command = {
 						"fd",
 						"--hidden",
-						"--exclude=.sqlx",
 						"--exclude=*.lock",
 						"--exclude=target",
-						"--exclude=build",
 						"-t",
 						"f",
 					},
@@ -87,9 +89,18 @@ return {
 					sort_lastused = true,
 					ignore_current_buffer = true,
 					mappings = {
-						i = { ["<C-d>"] = actions.delete_buffer + actions.move_to_top,},
+						i = { ["<C-d>"] = actions.delete_buffer + actions.move_to_top },
 						n = { ["<C-d>"] = actions.delete_buffer },
 					},
+				},
+			},
+
+			extensions = {
+				fzf = {
+					fuzzy = true, -- false will only do exact matching
+					override_generic_sorter = true, -- override the generic sorter
+					override_file_sorter = true, -- override the file sorter
+					case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 				},
 			},
 		})
@@ -98,7 +109,9 @@ return {
 
 		-- Keymaps
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
-		vim.keymap.set("n", "<leader>fl", builtin.live_grep, { desc = "[F]ind by [L]ive grep" })
+		vim.keymap.set("n", "<leader>fl", function()
+			multigrep()
+		end, { desc = "[F]ind by [L]ive grep" })
 		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Search [G]it [F]iles" })
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[F]ind active [B]uffers" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind help tags" })
@@ -106,4 +119,3 @@ return {
 		vim.keymap.set("n", "<leader>f/", builtin.current_buffer_fuzzy_find, { desc = "[/] Fuzzily [F]ind in buffer" })
 	end,
 }
-

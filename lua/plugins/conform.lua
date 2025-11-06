@@ -6,6 +6,7 @@ return {
 		require("conform").setup({
 			formatters_by_ft = {
 				c = { "clang_format" },
+				java = {"google-java-format"},
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				markdown = { "prettier" },
