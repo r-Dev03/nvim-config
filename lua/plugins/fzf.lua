@@ -1,99 +1,92 @@
 return {
-  "ibhagwan/fzf-lua",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  event = "VeryLazy",
-  config = function()
-    local fzf = require("fzf-lua")
+	"ibhagwan/fzf-lua",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	event = "VeryLazy",
 
-    fzf.setup({
-      -- Ivy fullscreen lookalike
-      winopts = {
-        height = 1.0,               -- fullscreen
-        width = 1.0,
-        row = 0.5,                  -- center vertically
-        col = 0.5,
-        border = "none",            -- no border
-        preview = {
-          layout = "vertical",      -- preview on top like your Telescope ivy
-          vertical = "up:70%",      -- 70% preview height
-          horizontal = "right:60%", -- fallback for wide windows
-          title = false,
-        },
-      },
+	config = function()
+		local fzf = require("fzf-lua")
 
-      -- Visuals & prompt styling
-      fzf_opts = {
-        ["--layout"] = "reverse",   -- prompt on top
-        ["--info"] = "inline",
-        ["--ansi"] = "",
-        ["--no-separator"] = "",
-        ["--padding"] = "1,2",      -- subtle padding
-      },
+		fzf.setup({
+			-- Fullscreen Ivy-like layout
+			winopts = {
+				height = 1.0,
+				width = 1.0,
+				row = 0.5,
+				col = 0.5,
+				border = "none", -- no outer borders
+				fullscreen = true,
+				preview = {
+					layout = "vertical",
+					vertical = "up:70%",
+					horizontal = "right:60%",
+					title = false,
+					scrollbar = false,
+					border = { "─", " ", " ", " ", " ", " ", " ", " " }, -- only top line drawn
+				},
+			},
 
-      keymap = {
-        builtin = {
-          ["<C-d>"] = "preview-page-down",
-          ["<C-u>"] = "preview-page-up",
-          ["<Esc>"] = "abort",
-          ["<C-j>"] = "down",
-          ["<C-k>"] = "up",
-          ["<C-s>"] = "vsplit",
-        },
-      },
+			-- Match Telescope’s general layout style
+			fzf_opts = {
+				["--layout"] = "reverse", -- prompt on top
+				["--info"] = "inline",
+				["--ansi"] = "",
+				["--no-separator"] = "",
+			},
 
-      -- Icons, prefixes, etc.
-      files = {
-        prompt = "   ",
-        fd_opts = [[--color=never --type f --hidden --follow --exclude .git --exclude node_modules --exclude '*.lock' --exclude target]],
-        git_icons = true,
-        file_icons = true,
-        color_icons = true,
-      },
+			-- Telescope-like keymaps
+			keymap = {
+				builtin = {
+					["<C-d>"] = "preview-page-down",
+					["<C-u>"] = "preview-page-up",
+					["<Esc>"] = "abort",
+					["<C-j>"] = "down",
+					["<C-k>"] = "up",
+					["<C-s>"] = "vsplit",
+				},
+			},
 
-      buffers = {
-        prompt = "   ",
-        sort_lastused = true,
-        ignore_current_buffer = true,
-        cwd_only = false,
-        actions = {
-          ["default"] = fzf.actions.file_edit,
-          ["ctrl-d"] = { fn = fzf.actions.buf_del, desc = "Delete Buffer" },
-        },
-      },
+			files = {
+				prompt = "   ",
+				fd_opts = [[--color=never --type f --hidden --follow --exclude .git --exclude node_modules --exclude '*.lock' --exclude target]],
+				git_icons = true,
+				file_icons = true,
+				color_icons = true,
+			},
 
-      grep = {
-        prompt = "   ",
-        rg_opts = table.concat({
-          "rg",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--hidden",
-        }),
-      },
+			grep = {
+				prompt = "   ",
+				-- rely on sane built-in defaults for rg
+				-- it automatically uses ripgrep if available
+			},
 
-      previewers = {
-        bat = {
-          theme = "OneHalfDark",
-          config = { "--style=numbers,changes", "--color=always" },
-        },
-      },
+			buffers = {
+				prompt = "   ",
+				sort_lastused = true,
+				ignore_current_buffer = true,
+				cwd_only = false,
+				actions = {
+					["default"] = fzf.actions.file_edit,
+					["ctrl-d"] = { fn = fzf.actions.buf_del, desc = "Delete Buffer" },
+				},
+			},
 
-      -- Optional telescope preset base for consistent feel
-      profile = "telescope",
-    })
+			previewers = {
+				bat = {
+					theme = "OneHalfDark",
+					config = { "--style=numbers,changes", "--color=always" },
+				},
+			},
 
-    -- Keymaps matching your Telescope setup
-    vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "[F]ind [F]iles" })
-    vim.keymap.set("n", "<leader>fg", fzf.git_files, { desc = "Search [G]it [F]iles" })
-    vim.keymap.set("n", "<leader>fl", fzf.live_grep, { desc = "[F]ind by [L]ive grep" })
-    vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "[F]ind active [B]uffers" })
-    vim.keymap.set("n", "<leader>fh", fzf.help_tags, { desc = "[F]ind help tags" })
-    vim.keymap.set("n", "<leader>fo", fzf.oldfiles, { desc = "[F]ind [O]ld files" })
-    vim.keymap.set("n", "<leader>f/", fzf.grep_curbuf, { desc = "[/] Fuzzily [F]ind in buffer" })
-  end,
+			profile = "telescope",
+		})
+
+		-- Keymaps (identical to your Telescope setup)
+		vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "[F]ind [F]iles" })
+		vim.keymap.set("n", "<leader>fg", fzf.git_files, { desc = "Search [G]it [F]iles" })
+		vim.keymap.set("n", "<leader>fl", fzf.live_grep, { desc = "[F]ind by [L]ive grep" })
+		vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "[F]ind active [B]uffers" })
+		vim.keymap.set("n", "<leader>fh", fzf.help_tags, { desc = "[F]ind help tags" })
+		vim.keymap.set("n", "<leader>fo", fzf.oldfiles, { desc = "[F]ind [O]ld files" })
+		vim.keymap.set("n", "<leader>f/", fzf.grep_curbuf, { desc = "[/] Fuzzily [F]ind in buffer" })
+	end,
 }
-

@@ -64,6 +64,8 @@ return {
 
 			-- Override highlights or add new highlights
 			on_highlights = function(hl, colors)
+				hl.FzfLuaMatch      = { fg = colors.number, bg = "NONE", bold = true } -- like TelescopeMatching
+				hl.FzfLuaCursorLine = { bg = colors.fg, bg = colors.bg }
 				hl.TelescopeMatching = { fg = colors.number, bg = "NONE", bold = true }
 				hl.TelescopeSelection = { fg = colors.fg, bg = colors.bg }
 				hl.Visual = { bg = colors.visual }
