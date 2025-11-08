@@ -11,12 +11,12 @@ return {
 		local actions = require("telescope.actions")
 		local themes = require("telescope.themes")
 		local builtin = require("telescope.builtin")
-		local multigrep = require("utils.multigrep")
 
 		-- Reusable fullscreen Ivy layout
 		local ivy = function(options)
 			local defaults = themes.get_ivy({
 				layout_strategy = "vertical",
+				preview = { filesize_limit = 1 },
 				treesitter = true,
 				layout_config = {
 					height = vim.o.lines,
@@ -63,7 +63,8 @@ return {
 					"--column",
 					"--smart-case",
 					"--hidden",
-					-- "--fixed-strings",
+					"--max-columns=150",  -- Skip lines longer than 150 chars
+					"--max-columns-preview",  -- Show truncated preview
 				},
 
 				file_ignore_patterns = {
@@ -109,9 +110,7 @@ return {
 
 		-- Keymaps
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
-		vim.keymap.set("n", "<leader>fl", function()
-			multigrep()
-		end, { desc = "[F]ind by [L]ive grep" })
+		vim.keymap.set("n", "<leader>fl", builtin.live_grep, { desc = "[F]ind by [L]ive grep" })
 		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Search [G]it [F]iles" })
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[F]ind active [B]uffers" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind help tags" })
