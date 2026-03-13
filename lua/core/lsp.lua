@@ -6,6 +6,7 @@ vim.lsp.enable({
 	"rust_analyzer",
 	"sqls",
 	"ts_ls",
+	"tinymist",
 })
 
 -- Semantic tokens removal
