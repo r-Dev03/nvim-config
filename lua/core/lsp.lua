@@ -1,5 +1,6 @@
 -- Enabling the LSP's
 vim.lsp.enable({
+	"basedpyright",
 	"clangd",
 	"lua_ls",
 	"nil_ls",
